@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	
+	<style>
+
+		fieldset .contenido {
+			height: 300px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+
+		pre, xmp {
+			margin: 0;
+			padding: 0;
+		}
+
+		.codigo {
+			border: 1px solid red;
+			border-radius: 5px;
+			padding: 0 30px;
+			margin: 20px 0;
+			position: relative;
+		}
+
+		.copiar {
+			position: absolute;
+			top: 10px;
+			right: 15px;
+		}
+
+	</style>
+	
+{% endblock %}
+
+{% block title %}Logo personalizado de SOStenibles{% endblock %}
+
+{% block cabecera %}
+	{% include('sostenibles/navegacion.html.twig') %}
+{% endblock %}
+
+{% block cuerpo %}
+
+	<div class="banner rounded text-center">
+		<h1>Logo del proyecto <small class="text-muted">(Ref: 18-015)</small>:</h1>
+		<h4>Gracias al apadrinamiento de nuestro proyecto se le otorga el derecho a utilizar el logo personalizado vinculado al proyecto</h4>
+	</div>
+
+	<figure class="my-3 text-center">
+		<img class="img-fluid" src="{{ asset('build/img/LogoCRref.JPG') }}" alt="Logo personalizado proyecto Limpieza de playas 2018">
+	</figure>
+
+	<div>
+		<span class="h1">Inserte este código en su sitio web:</span>
+		<div class="codigo">
+			<div class="copiar">
+				<button class="btn" data-toggle="tooltip" title="Copiar a portapapeles" onclick="copiarAPortapapeles();">
+					<i class="far fa-copy"></i>
+				</button>
+			</div>
+			<pre>
+				<xmp>
+<figure>
+    <img    style="width: 200px; margin: 4px;"
+            src="http://wwww.sostenibles.org/build/img/LogoCRref.JPG"
+            alt="Logo personalizado proyecto Limpieza de playas 2018">
+</figure>
+				</xmp>
+			</pre>
+		</div>
+	</div>
+
+	<input id="codigoLogo" type="hidden" value='<figure><img style="width: 200px; margin: 4px;" src="http://wwww.sostenibles.org/img/LogoCRref.JPG" alt="Logo personalizado proyecto Limpieza de playas 2018"></figure>'>
+
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+
+	<!--Javascript personal-->
+	<script src="{{ asset('build/js/script.js') }}"></script>
+
+{% endblock %}

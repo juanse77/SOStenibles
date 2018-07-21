@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	
+	<style>
+	
+		fieldset .contenido{
+			height: 300px;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
+		
+	</style>
+	
+{% endblock %}
+
+{% block title %}Área de usuario{% endblock %}
+
+{% block cabecera %}
+	{% include('sostenibles/navegacion.html.twig') %}
+{% endblock %}
+
+{% block cuerpo %}
+
+	<h1 class="banner rounded text-center">Home: Nombre usuario</h1>
+
+	<div class="row">
+		<div class="col-4 col-md-2">
+			<img class="img-fluid" src="{{ asset('build/img/user2.png') }}" alt="Foto usuario">
+		</div>
+		<div class="col-8 col-md-10">
+			<div class="mb-2">
+				<strong>Usuario: </strong>
+				--Nombre completo usuario--
+			</div>
+			<div>
+				<a class="link" href="#">Editar perfil</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-6">
+			<fieldset class="my-4">
+				<legend>Notificaciones</legend>
+
+				<div class="contenido">
+					<div class="pr-1">
+						<div class="row">
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<i class="fas fa-check"></i>
+							</div>
+							<div class="col-8 col-md-10">
+								<strong>Proyecto Educación Ambiental</strong> <span class="text-muted">(Ref: 18-012)</span>
+								<br>
+								Cruz Roja ha aceptado tu petición de apadrinamiento.                        
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<i class="fas fa-ban"></i>
+							</div>
+							<div class="col-8 col-md-10">
+								<strong>Proyecto Playas Accesibles</strong> <span class="text-muted">(Ref: 18-015)</span>
+								<br>
+								Cruz Roja ha rechazado su petición de apadrinamiento.                            
+							</div>
+						</div>  
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="col-lg-6">
+			<fieldset class="my-4">
+				<legend>Mis proyectos</legend>
+
+				<div class="contenido">
+					<div class="pr-1">
+						<div class="row">
+							<div class="col-sm-4 col-md-3">
+								<img class="img-fluid" src="{{ asset('build/img/playa_sucia2.jpg') }}" alt="">
+							</div>
+							<div class="col-8 col-sm-4 col-md-7">
+								<strong>Limpieza de playas</strong><br>
+								En curso
+							</div>
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<a class="link" href="{{ path('logo', {'id_proyecto': 1}) }}" data-toggle="tooltip" title="Acceso a su logo"><i class="far fa-calendar-check"></i></a>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<div class="col-sm-4 col-md-3">
+								<img class="img-fluid" src="{{ asset('build/img/senderimos-accesible2.jpg') }}" alt="">
+							</div>
+							<div class="col-8 col-sm-4 col-md-7">
+								<strong>Senderismo accesible</strong><br>
+								Solicitud pendiente
+							</div>
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<i class="fas fa-question"></i>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<div class="col-sm-4 col-md-3">
+								<img class="img-fluid" src="{{ asset('build/img/playa_sucia2.jpg') }}" alt="">
+							</div>
+							<div class="col-8 col-sm-4 col-md-7">
+								<strong>Limpieza de playas</strong><br>
+								Finalizado el 6/10/2017
+							</div>
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<i class="far fa-calendar-times"></i>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+
+{% endblock %}

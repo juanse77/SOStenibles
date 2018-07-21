@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block cabecera %}
+	{% include('sostenibles/navegacion.html.twig') %}
+{% endblock %}
+
+{% block cuerpo %}
+
+	{% if id_proyecto == 1 %}
+
+		<h3>Limpieza de playas</h3>
+		<figure>
+			<img class="img-fluid rounded imgIzq" src="{{ asset('build/img/playa_sucia2.jpg') }}" alt="Limpieza de playas">
+		</figure>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<h4 class="mb-3"><strong>Necesidad:</strong> 10 voluntarios, 100€</h4>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" style="width: 36%;" aria-valuemin="0" aria-valuemax="100">36%</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="d-flex justify-content-between subir">
+					<div class="h3" id="like1">
+						<a id="corazon1" href="javascript:void(0);" onclick="gustar(1);"><i class="far fa-heart"></i></a> <span id="likes1">12</span>
+					</div>
+
+					<div class="h2 textoRojo">
+						<a class="like" href="#"><i class="fab fa-facebook-square"></i></a>
+						<a class="like" href="#"><i class="fab fa-twitter-square"></i></a>
+						<a class="like" href="#"><i class="fab fa-google-plus-square"></i></a>
+					</div>
+
+					<div>
+						<button class="btn">Apadrinar</button>
+					</div>
+				</div>        
+			</div>
+		</div>
+	{% endif %}
+
+	{% if id_proyecto == 2 %}
+		<h3>Senderismo accesible</h3>
+		<figure>
+			<img class="img-fluid rounded imgIzq" src="{{ asset('build/img/senderimos-accesible2.jpg') }}" alt="Senderismo accesible">
+		</figure>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+
+		<h4 class="mb-3"><strong>Necesidad:</strong> 5 voluntarios, 2 sillas de ruedas</h4>
+
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" style="width: 36%;" aria-valuemin="0" aria-valuemax="100">36%</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="d-flex justify-content-between subir">
+					<div class="h3" id="like1">
+						<a id="corazon1" href="javascript:void(0);" onclick="gustar(1);"><i class="far fa-heart"></i></a> <span id="likes1">12</span>
+					</div>
+
+					<div class="h2 textoRojo">
+						<a class="like" href="#"><i class="fab fa-facebook-square"></i></a>
+						<a class="like" href="#"><i class="fab fa-twitter-square"></i></a>
+						<a class="like" href="#"><i class="fab fa-google-plus-square"></i></a>
+					</div>
+
+					<div>
+						<button class="btn">Apadrinar</button>
+					</div>
+				</div>        
+			</div>
+
+		</div>
+	{% endif %}
+
+{% endblock %}
+
+{% block modales %}
+	{% include('sostenibles/ingreso.html.twig') %}
+	{% include('sostenibles/registro.html.twig') %}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	
+	<!--Javascript personal-->
+	<script src="{{ asset('build/js/script.js') }}"></script>
+
+{% endblock %}

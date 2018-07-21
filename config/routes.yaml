@@ -1,3 +1,23 @@
 index:
     path: /
     controller: App\Controller\SosteniblesController::index
+    
+proyectos:
+    path: /proyectos/{page?1}
+    controller: App\Controller\SosteniblesController::proyectos
+    
+contacto:
+    path: /contacto
+    controller: App\Controller\SosteniblesController::contacto
+
+proyecto:
+    path: /proyecto/{id_proyecto}
+    controller: App\Controller\SosteniblesController::proyecto
+    
+home:
+    path: /home/{id_usuario}
+    controller: App\Controller\SosteniblesController::home
+    
+logo:
+    path: /logo/{id_proyecto}
+    controller: App\Controller\SosteniblesController::logo
