@@ -6,12 +6,12 @@
 	<style>
 
 		#map {
-			height: 400px;
+			height: 380px;
 			width: 100%;
 		}
 
 		textarea{
-			height: 250px;
+			height: 265px;
 		}
 
 	</style>
@@ -34,10 +34,10 @@
 		<div class="col-lg-6">
 			<address>
 				<div class="row mb-3">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<strong>Dirección:</strong>
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						Calle León y Castillo 231, Las Palmas de Gran Canaria. CP 35005.
 					</div>
 				</div>
@@ -45,11 +45,22 @@
 				<hr class="linea">
 
 				<div class="row mb-3">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<strong>Teléfono:</strong>
 					</div>
-					<div class="col-md-8">
+					<div class="col-md-9">
 						928 29 00 00
+					</div>
+				</div>
+				
+				<hr class="linea">
+				
+				<div class="row mb-3">
+					<div class="col-md-3">
+						<strong>Email:</strong>
+					</div>
+					<div class="col-md-9">
+						info@sostenibles.org
 					</div>
 				</div>
 			</address>
@@ -97,7 +108,7 @@
 
 	<!-- Google Maps -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCel3wtMYqoCUbVdjzW4zgJdDJ9XrfcRjk&callback=initMap" async defer></script>	
-	
+
 	<script>
 		var map;
 		var cruzRoja = ["Cruz Roja SOStenibles", 28.12325, -15.428128, "{{ asset('build/img/LogoCR_ico.JPG') }}"];
@@ -117,5 +128,5 @@
 		}
 
 	</script>
-	
+
 {% endblock %}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Personal" table="personal">
+    <indexes>
+      <index name="id_persona" columns="id_persona"/>
+      <index name="id_apadrinamiento" columns="id_apadrinamiento"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="idApadrinamiento" target-entity="Apadrinamientos" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_apadrinamiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPersona" target-entity="Personas" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_persona" referenced-column-name="id_persona"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

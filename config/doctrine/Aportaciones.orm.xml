@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="App\Entity\Aportaciones" table="aportaciones">
+    <indexes>
+      <index name="id_apadrinamiento" columns="id_apadrinamiento"/>
+      <index name="id_necesidad" columns="id_necesidad"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="cantidadAportada" type="integer" column="cantidad_aportada" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="fechaAportacion" type="datetime" column="fecha_aportacion" nullable="false">
+      <options>
+        <option name="default">CURRENT_TIMESTAMP</option>
+      </options>
+    </field>
+    <many-to-one field="idApadrinamiento" target-entity="Apadrinamientos" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_apadrinamiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idNecesidad" target-entity="Necesidades" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_necesidad" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
