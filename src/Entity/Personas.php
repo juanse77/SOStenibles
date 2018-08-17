@@ -64,7 +64,7 @@ class Personas
      * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="personas", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $usuarios;
+    private $usuario;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Personal", mappedBy="persona", orphanRemoval=true)
@@ -177,14 +177,14 @@ class Personas
         return $this;
     }
 
-    public function getUsuarios(): ?Usuarios
+    public function getUsuario(): ?Usuarios
     {
-        return $this->usuarios;
+        return $this->usuario;
     }
 
-    public function setUsuarios(Usuarios $usuarios): self
+    public function setUsuario(Usuarios $usuario): self
     {
-        $this->usuarios = $usuarios;
+        $this->usuario = $usuario;
 
         return $this;
     }
