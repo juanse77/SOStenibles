@@ -5,41 +5,55 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Likes
- *
- * @ORM\Table(name="likes", indexes={@ORM\Index(name="id_usuario", columns={"id_usuario"}), @ORM\Index(name="id_proyecto", columns={"id_proyecto"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\LikesRepository")
  */
 class Likes
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var \Proyectos
-     *
-     * @ORM\ManyToOne(targetEntity="Proyectos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_proyecto", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="App\Entity\Usuarios", inversedBy="likes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idProyecto;
+    private $usuario;
 
     /**
-     * @var \Usuarios
-     *
-     * @ORM\ManyToOne(targetEntity="Usuarios")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_usuario", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity="App\Entity\Proyectos", inversedBy="likes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idUsuario;
+    private $proyecto;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
+    public function getUsuario(): ?Usuarios
+    {
+        return $this->usuario;
+    }
+
+    public function setUsuario(?Usuarios $usuario): self
+    {
+        $this->usuario = $usuario;
+
+        return $this;
+    }
+
+    public function getProyecto(): ?Proyectos
+    {
+        return $this->proyecto;
+    }
+
+    public function setProyecto(?Proyectos $proyecto): self
+    {
+        $this->proyecto = $proyecto;
+
+        return $this;
+    }
 }

@@ -2,66 +2,224 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Proyectos
- *
- * @ORM\Table(name="proyectos")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ProyectosRepository")
  */
 class Proyectos
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=50)
      */
     private $nombre;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", length=5000, nullable=false)
+     * @ORM\Column(type="string", length=60)
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(type="string", length=2000)
      */
     private $descripcion;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="foto", type="string", length=50, nullable=false)
+     * @ORM\Column(type="date")
      */
-    private $foto;
+    private $fecha_inicio;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_inicio", type="date", nullable=false)
+     * @ORM\Column(type="date")
      */
-    private $fechaInicio;
+    private $fecha_fin;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_fin", type="date", nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\Necesidades", mappedBy="proyecto", orphanRemoval=true)
      */
-    private $fechaFin;
+    private $necesidades;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_creacion", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Apadrinamientos", mappedBy="proyecto", orphanRemoval=true)
      */
-    private $fechaCreacion = 'CURRENT_TIMESTAMP';
+    private $apadrinamientos;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Likes", mappedBy="proyecto", orphanRemoval=true)
+     */
+    private $likes;
 
+    public function __construct()
+    {
+        $this->necesidades = new ArrayCollection();
+        $this->apadrinamientos = new ArrayCollection();
+        $this->likes = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getFechaInicio(): ?\DateTimeInterface
+    {
+        return $this->fecha_inicio;
+    }
+
+    public function setFechaInicio(\DateTimeInterface $fecha_inicio): self
+    {
+        $this->fecha_inicio = $fecha_inicio;
+
+        return $this;
+    }
+
+    public function getFechaFin(): ?\DateTimeInterface
+    {
+        return $this->fecha_fin;
+    }
+
+    public function setFechaFin(\DateTimeInterface $fecha_fin): self
+    {
+        $this->fecha_fin = $fecha_fin;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Necesidades[]
+     */
+    public function getNecesidades(): Collection
+    {
+        return $this->necesidades;
+    }
+
+    public function addNecesidade(Necesidades $necesidade): self
+    {
+        if (!$this->necesidades->contains($necesidade)) {
+            $this->necesidades[] = $necesidade;
+            $necesidade->setProyecto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNecesidade(Necesidades $necesidade): self
+    {
+        if ($this->necesidades->contains($necesidade)) {
+            $this->necesidades->removeElement($necesidade);
+            // set the owning side to null (unless already changed)
+            if ($necesidade->getProyecto() === $this) {
+                $necesidade->setProyecto(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Apadrinamientos[]
+     */
+    public function getApadrinamientos(): Collection
+    {
+        return $this->apadrinamientos;
+    }
+
+    public function addApadrinamiento(Apadrinamientos $apadrinamiento): self
+    {
+        if (!$this->apadrinamientos->contains($apadrinamiento)) {
+            $this->apadrinamientos[] = $apadrinamiento;
+            $apadrinamiento->setProyecto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeApadrinamiento(Apadrinamientos $apadrinamiento): self
+    {
+        if ($this->apadrinamientos->contains($apadrinamiento)) {
+            $this->apadrinamientos->removeElement($apadrinamiento);
+            // set the owning side to null (unless already changed)
+            if ($apadrinamiento->getProyecto() === $this) {
+                $apadrinamiento->setProyecto(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Likes[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Likes $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+            $like->setProyecto($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Likes $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+            // set the owning side to null (unless already changed)
+            if ($like->getProyecto() === $this) {
+                $like->setProyecto(null);
+            }
+        }
+
+        return $this;
+    }
 }

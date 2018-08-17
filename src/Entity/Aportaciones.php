@@ -5,55 +5,55 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Aportaciones
- *
- * @ORM\Table(name="aportaciones", indexes={@ORM\Index(name="id_apadrinamiento", columns={"id_apadrinamiento"}), @ORM\Index(name="id_necesidad", columns={"id_necesidad"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\AportacionesRepository")
  */
 class Aportaciones
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="cantidad_aportada", type="integer", nullable=false)
-     */
-    private $cantidadAportada;
+     * @ORM\ManyToOne(targetEntity="App\Entity\Apadrinamientos", inversedBy="aportaciones")
+	 * @ORM\JoinColumn(nullable=false)
+	 */
+    private $apadrinamiento;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_aportacion", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Necesidades", inversedBy="aportaciones")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $fechaAportacion = 'CURRENT_TIMESTAMP';
+    private $necesidad;
 
-    /**
-     * @var \Apadrinamientos
-     *
-     * @ORM\ManyToOne(targetEntity="Apadrinamientos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_apadrinamiento", referencedColumnName="id")
-     * })
-     */
-    private $idApadrinamiento;
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
-    /**
-     * @var \Necesidades
-     *
-     * @ORM\ManyToOne(targetEntity="Necesidades")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_necesidad", referencedColumnName="id")
-     * })
-     */
-    private $idNecesidad;
+    public function getApadrinamiento(): ?Apadrinamientos
+    {
+        return $this->apadrinamiento;
+    }
 
+    public function setApadrinamiento(?Apadrinamientos $apadrinamiento): self
+    {
+        $this->apadrinamiento = $apadrinamiento;
 
+        return $this;
+    }
+
+    public function getNecesidad(): ?Necesidades
+    {
+        return $this->necesidad;
+    }
+
+    public function setNecesidad(?Necesidades $necesidad): self
+    {
+        $this->necesidad = $necesidad;
+
+        return $this;
+    }
 }

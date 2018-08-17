@@ -2,55 +2,117 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Necesidades
- *
- * @ORM\Table(name="necesidades", indexes={@ORM\Index(name="id_proyecto", columns={"id_proyecto"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\NecesidadesRepository")
  */
 class Necesidades
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="tipo", type="integer", nullable=false)
+     * @ORM\Column(type="smallint")
      */
     private $tipo;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", length=100, nullable=false)
+     * @ORM\Column(type="string", length=100)
      */
     private $descripcion;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="cantidad_necesaria", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Proyectos", inversedBy="necesidades")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $cantidadNecesaria;
+    private $proyecto;
 
     /**
-     * @var \Proyectos
-     *
-     * @ORM\ManyToOne(targetEntity="Proyectos")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_proyecto", referencedColumnName="id")
-     * })
+     * @ORM\OneToMany(targetEntity="App\Entity\Aportaciones", mappedBy="necesidad", orphanRemoval=true)
      */
-    private $idProyecto;
+    private $aportaciones;
 
+    public function __construct()
+    {
+        $this->aportaciones = new ArrayCollection();
+    }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTipo(): ?int
+    {
+        return $this->tipo;
+    }
+
+    public function setTipo(int $tipo): self
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getProyecto(): ?Proyectos
+    {
+        return $this->proyecto;
+    }
+
+    public function setProyecto(?Proyectos $proyecto): self
+    {
+        $this->proyecto = $proyecto;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Aportaciones[]
+     */
+    public function getAportaciones(): Collection
+    {
+        return $this->aportaciones;
+    }
+
+    public function addAportacione(Aportaciones $aportacione): self
+    {
+        if (!$this->aportaciones->contains($aportacione)) {
+            $this->aportaciones[] = $aportacione;
+            $aportacione->setNecesidad($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAportacione(Aportaciones $aportacione): self
+    {
+        if ($this->aportaciones->contains($aportacione)) {
+            $this->aportaciones->removeElement($aportacione);
+            // set the owning side to null (unless already changed)
+            if ($aportacione->getNecesidad() === $this) {
+                $aportacione->setNecesidad(null);
+            }
+        }
+
+        return $this;
+    }
 }

@@ -5,66 +5,139 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Empresas
- *
- * @ORM\Table(name="empresas", indexes={@ORM\Index(name="id_empresa", columns={"id_empresa"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\EmpresasRepository")
  */
 class Empresas
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="nombre", type="string", length=80, nullable=false)
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=80)
      */
     private $nombre;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="cif", type="string", length=10, nullable=false)
+     * @ORM\Column(type="string", length=10)
      */
     private $cif;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="telefono", type="string", length=12, nullable=false)
+     * @ORM\Column(type="string", length=15)
      */
     private $telefono;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="logo", type="string", length=50, nullable=false)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $logo;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="direccion", type="string", length=128, nullable=false)
+     * @ORM\Column(type="string", length=128, nullable=true)
      */
     private $direccion;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="descripcion", type="string", length=1024, nullable=false)
+     * @ORM\Column(type="string", length=1024, nullable=true)
      */
     private $descripcion;
 
     /**
-     * @var \Usuarios
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="Usuarios")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_empresa", referencedColumnName="id")
-     * })
+     * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="empresas", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idEmpresa;
+    private $usuarios;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getCif(): ?string
+    {
+        return $this->cif;
+    }
+
+    public function setCif(string $cif): self
+    {
+        $this->cif = $cif;
+
+        return $this;
+    }
+
+    public function getTelefono(): ?string
+    {
+        return $this->telefono;
+    }
+
+    public function setTelefono(string $telefono): self
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): self
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getDireccion(): ?string
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion(string $direccion): self
+    {
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(string $descripcion): self
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    public function getUsuarios(): ?Usuarios
+    {
+        return $this->usuarios;
+    }
+
+    public function setUsuarios(Usuarios $usuarios): self
+    {
+        $this->usuarios = $usuarios;
+
+        return $this;
+    }
 }
