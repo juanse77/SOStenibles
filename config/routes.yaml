@@ -21,3 +21,7 @@ home:
 logo:
     path: /logo/{id_proyecto}
     controller: App\Controller\SosteniblesController::logo
+    
+nuevo_proyecto:
+    path: /admin/proyectos/nuevo
+    controller: App\Controller\AdminController::nuevo

@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class SosteniblesController extends Controller {
+class SosteniblesController extends AbstractController {
 
 	public function index() {
         return $this->render('sostenibles/index.html.twig');
