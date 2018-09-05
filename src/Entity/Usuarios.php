@@ -79,14 +79,14 @@ class Usuarios
         return $this;
     }
 
-    public function getemail(): ?string
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    public function setçemail(string $email): self
+    public function setEmail(string $email): self
     {
-        $this->çemail = $email;
+        $this->email = $email;
 
         return $this;
     }

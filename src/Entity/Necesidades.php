@@ -41,6 +41,11 @@ class Necesidades
      */
     private $aportaciones;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $cantidad_necesaria;
+
     public function __construct()
     {
         $this->aportaciones = new ArrayCollection();
@@ -114,6 +119,18 @@ class Necesidades
                 $aportacione->setNecesidad(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCantidadNecesaria(): ?int
+    {
+        return $this->cantidad_necesaria;
+    }
+
+    public function setCantidadNecesaria(int $cantidad_necesaria): self
+    {
+        $this->cantidad_necesaria = $cantidad_necesaria;
 
         return $this;
     }

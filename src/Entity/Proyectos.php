@@ -142,23 +142,23 @@ class Proyectos
         return $this->necesidades;
     }
 
-    public function addNecesidade(Necesidades $necesidade): self
+    public function addNecesidad(Necesidades $necesidad): self
     {
-        if (!$this->necesidades->contains($necesidade)) {
-            $this->necesidades[] = $necesidade;
-            $necesidade->setProyecto($this);
+        if (!$this->necesidades->contains($necesidad)) {
+            $this->necesidades[] = $necesidad;
+            $necesidad->setProyecto($this);
         }
 
         return $this;
     }
 
-    public function removeNecesidade(Necesidades $necesidade): self
+    public function removeNecesidad(Necesidades $necesidad): self
     {
-        if ($this->necesidades->contains($necesidade)) {
-            $this->necesidades->removeElement($necesidade);
+        if ($this->necesidades->contains($necesidad)) {
+            $this->necesidades->removeElement($necesidad);
             // set the owning side to null (unless already changed)
-            if ($necesidade->getProyecto() === $this) {
-                $necesidade->setProyecto(null);
+            if ($necesidad->getProyecto() === $this) {
+                $necesidad->setProyecto(null);
             }
         }
 
