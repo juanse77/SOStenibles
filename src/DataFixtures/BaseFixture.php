@@ -17,16 +17,14 @@ abstract class BaseFixture extends Fixture {
 	/** @var Generator */
 	protected $faker;
 	
-	abstract protected function creaProyectos(ObjectManager $manager);
-    abstract protected function creaUsuarios(ObjectManager $manager);
+	abstract protected function loadData(ObjectManager $manager);
 	
 	public function load(ObjectManager $manager){
 
 	    $this->manager = $manager;
 		$this->faker = Factory::create();
 
-		$this->creaProyectos($manager);
-		$this->creaUsuarios($manager);
+		$this->loadData($manager);
 
 	}
 	
