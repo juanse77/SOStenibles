@@ -12,8 +12,8 @@ class ProyectosFixture extends BaseFixture
     protected function loadData(ObjectManager $manager)
     {
 		$this->createMany(Proyectos::class, 20, function(Proyectos $proyecto, $count) use($manager) {
-			$proyecto->setNombre("Limpieza da playas")
-				->setSlug("limpieza-de-playas".$count)
+			$proyecto->setNombre("Limpieza de playas".$count)
+				->setFoto("playa_sucia2.jpg")
 				->setDescripcion(<<<EOF
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
@@ -21,6 +21,7 @@ Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
 EOF
 					);
+
 			/**var \DateTime */
 			$fecha_inicio = new \DateTime();
 			

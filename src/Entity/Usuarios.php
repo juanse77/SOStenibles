@@ -49,7 +49,7 @@ class Usuarios
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Apadrinamientos", mappedBy="usuario", orphanRemoval=true)
      */
-    private $proyecto;
+    private $apadrinamientos;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Likes", mappedBy="usuario", orphanRemoval=true)
@@ -140,28 +140,28 @@ class Usuarios
     /**
      * @return Collection|Apadrinamientos[]
      */
-    public function getProyecto(): Collection
+    public function getApadrinamientos(): Collection
     {
-        return $this->proyecto;
+        return $this->apadrinamientos;
     }
 
-    public function addProyecto(Apadrinamientos $proyecto): self
+    public function addApadrinamientos(Apadrinamientos $apadrinamientos): self
     {
-        if (!$this->proyecto->contains($proyecto)) {
-            $this->proyecto[] = $proyecto;
-            $proyecto->setUsuario($this);
+        if (!$this->proyecto->contains($apadrinamientos)) {
+            $this->proyecto[] = $apadrinamientos;
+            $apadrinamientos->setUsuario($this);
         }
 
         return $this;
     }
 
-    public function removeProyecto(Apadrinamientos $proyecto): self
+    public function removeApadrinamientos(Apadrinamientos $apadrinamientos): self
     {
-        if ($this->proyecto->contains($proyecto)) {
-            $this->proyecto->removeElement($proyecto);
+        if ($this->proyecto->contains($apadrinamientos)) {
+            $this->proyecto->removeElement($apadrinamientos);
             // set the owning side to null (unless already changed)
-            if ($proyecto->getUsuario() === $this) {
-                $proyecto->setUsuario(null);
+            if ($apadrinamientos->getUsuario() === $this) {
+                $apadrinamientos->setUsuario(null);
             }
         }
 

@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Proyectos;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Proyectos|null find($id, $lockMode = null, $lockVersion = null)
@@ -47,4 +48,22 @@ class ProyectosRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    /**
+     * @param string|null $cadena
+     * @return QueryBuilder
+     */
+    public function getWithSearchQueryBuilder(?string $cadena): QueryBuilder
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->innerJoin('p.necesidades', 'n')
+            ->addSelect('p');
+
+        if ($cadena) {
+            $qb->andWhere('p.nombre LIKE :cadena')
+                ->setParameter('cadena', '%' . $cadena . '%');
+        }
+
+        return $qb ->orderBy('p.createdAt', 'DESC') ;
+    }
 }

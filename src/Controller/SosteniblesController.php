@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\ProyectosRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SosteniblesController extends AbstractController {
@@ -10,8 +13,20 @@ class SosteniblesController extends AbstractController {
         return $this->render('sostenibles/index.html.twig');
 	}
 
-	public function proyectos($page = 1) {
-        return $this->render('sostenibles/proyectos.html.twig', ['page' => $page]);
+	public function proyectos(ProyectosRepository $repository, Request $request, PaginatorInterface $paginator) {
+
+        $q = $request->query->get('q');
+        $queryBuilder = $repository->getWithSearchQueryBuilder($q);
+
+	    $pagination = $paginator->paginate(
+            $queryBuilder,
+            $request->query->getInt('page',1),
+            2
+        );
+
+        return $this->render('sostenibles/proyectos.html.twig', [
+            'pagination' => $pagination
+        ]);
 	}
 	
 	public function contacto() {

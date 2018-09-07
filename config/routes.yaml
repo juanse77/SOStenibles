@@ -3,7 +3,7 @@ index:
     controller: App\Controller\SosteniblesController::index
     
 proyectos:
-    path: /proyectos/{page?1}
+    path: /proyectos
     controller: App\Controller\SosteniblesController::proyectos
     
 contacto:

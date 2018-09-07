@@ -62,6 +62,11 @@ class Proyectos
      */
     private $likes;
 
+    /**
+     * @ORM\Column(type="string", length=127)
+     */
+    private $foto;
+
     public function __construct()
     {
         $this->necesidades = new ArrayCollection();
@@ -223,6 +228,18 @@ class Proyectos
                 $like->setProyecto(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFoto(): ?string
+    {
+        return $this->foto;
+    }
+
+    public function setFoto(string $foto): self
+    {
+        $this->foto = $foto;
 
         return $this;
     }
