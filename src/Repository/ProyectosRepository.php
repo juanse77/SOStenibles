@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Proyectos;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\QueryBuilder;
 
@@ -57,7 +58,9 @@ class ProyectosRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('p')
             ->innerJoin('p.necesidades', 'n')
-            ->addSelect('p');
+            ->addSelect('p')
+            ->andWhere('p.fecha_fin > :fecha_fin')
+            ->setParameter('fecha_fin', date('Y-m-d', time()));
 
         if ($cadena) {
             $qb->andWhere('p.nombre LIKE :cadena')
@@ -66,4 +69,20 @@ class ProyectosRepository extends ServiceEntityRepository
 
         return $qb ->orderBy('p.createdAt', 'DESC') ;
     }
+
+    /**
+     * @return String
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function contadorProyectosActivos()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p.id)')
+            ->andWhere('p.fecha_fin > :fecha')
+            ->setParameter('fecha', date('Y-m-d', time()))
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
 }

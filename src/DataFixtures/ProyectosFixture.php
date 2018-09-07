@@ -15,10 +15,10 @@ class ProyectosFixture extends BaseFixture
 			$proyecto->setNombre("Limpieza de playas".$count)
 				->setFoto("playa_sucia2.jpg")
 				->setDescripcion(<<<EOF
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi deserunt quisquam!</p>
 EOF
 					);
 

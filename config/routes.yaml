@@ -11,7 +11,7 @@ contacto:
     controller: App\Controller\SosteniblesController::contacto
 
 proyecto:
-    path: /proyecto/{id_proyecto}
+    path: /proyecto/{slug}
     controller: App\Controller\SosteniblesController::proyecto
     
 home:

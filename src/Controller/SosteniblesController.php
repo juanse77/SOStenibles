@@ -6,6 +6,7 @@ use App\Repository\ProyectosRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Proyectos;
 
 class SosteniblesController extends AbstractController {
 
@@ -24,8 +25,11 @@ class SosteniblesController extends AbstractController {
             2
         );
 
+	    $num_proyectos_activos = $repository->contadorProyectosActivos();
+
         return $this->render('sostenibles/proyectos.html.twig', [
-            'pagination' => $pagination
+            'pagination' => $pagination,
+            'num_proyectos_activos' => $num_proyectos_activos
         ]);
 	}
 	
@@ -33,8 +37,9 @@ class SosteniblesController extends AbstractController {
         return $this->render('sostenibles/contacto.html.twig');
 	}
 	
-	public function proyecto($id_proyecto) {
-        return $this->render('sostenibles/proyecto.html.twig', ['id_proyecto' => $id_proyecto]);
+	public function proyecto(Proyectos $proyecto) {
+
+        return $this->render('sostenibles/proyecto.html.twig', ['proyecto' => $proyecto]);
 	}
 	
 	public function home($id_usuario) {

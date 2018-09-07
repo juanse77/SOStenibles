@@ -12,8 +12,7 @@
 {% block cuerpo %}
 	<div class="banner rounded">
         <h1>Comienza tu compromiso con el medioambiente</h1>
-        <h2>Tenemos 12 proyectos a la espera de ser apadrinados</h2>
-		<h3>({{ pagination.getTotalItemCount }})</h3>
+        <h2>Tenemos {{ num_proyectos_activos|number_format }} proyectos a la espera de ser apadrinados</h2>
 	</div>
 
 	<hr class="bg-dark">
@@ -24,12 +23,12 @@
 
 			<article class="col-md-6 pr-md-4">
 
-				<h3 class="text-center"><a href="{{ path('proyecto', {'id_proyecto': proyecto.id }) }}">{{ proyecto.nombre }}</a></h3>
+				<h3 class="text-center"><a href="{{ path('proyecto', {'slug': proyecto.slug }) }}">{{ proyecto.nombre }}</a></h3>
 
 				<figure>
 					<img class="img-fluid rounded" src="{{ asset('build/img/'~proyecto.foto) }}" alt="{{ proyecto.nombre }}">
 				</figure>
-				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi <a href="playas.html" class="link">Leer más...</a></p>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi <a href="{{ path('proyecto', {'slug' : proyecto.slug}) }}" class="link">Leer más...</a></p>
 
 				<h4 class="mb-3"><strong>Necesidad:</strong> 10 voluntarios, 100€</h4>
 
@@ -39,7 +38,7 @@
 
 				<div class="d-flex justify-content-between align-items-center">
 					<div class="h3" id="like1">
-						<a id="corazon1" href="javascript:void(0);" onclick="gustar(1);"><i class="far fa-heart"></i></a> <span id="likes1">12</span>
+						<a id="corazon{{ proyecto.id }}" href="javascript:void(0);" onclick="gustar({{ proyecto.id }});"><i class="far fa-heart"></i></a> <span id="likes{{ proyecto.id }}">12</span>
 					</div>
 					<div class="h2 textoRojo">
 						<a class="like" href="#"><i class="fab fa-facebook-square"></i></a>
