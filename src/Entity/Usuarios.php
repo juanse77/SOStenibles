@@ -6,15 +6,19 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UsuariosRepository")
+ * @UniqueEntity(fields="email", message="Ya existe el email")
  */
-class Usuarios
+class Usuarios implements UserInterface, \Serializable
 {
 	use TimestampableEntity;
-	
-	/**
+
+    /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
@@ -22,29 +26,31 @@ class Usuarios
     private $id;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="array")
      */
-    private $rol;
+    private $roles;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=64)
      */
     private $password;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Personas", mappedBy="usuarios", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Personas", mappedBy="usuario", cascade={"persist", "remove"})
      */
-    private $personas;
+    private $persona;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Empresas", mappedBy="usuarios", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Empresas", mappedBy="usuario", cascade={"persist", "remove"})
      */
-    private $empresas;
+    private $empresa;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Apadrinamientos", mappedBy="usuario", orphanRemoval=true)
@@ -56,27 +62,23 @@ class Usuarios
      */
     private $likes;
 
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=50)
+     */
+    private $plain_password;
+
     public function __construct()
     {
-        $this->proyecto = new ArrayCollection();
+        $this->apadrinamientos = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->roles = new ArrayCollection();
+        $this->roles[] = 'ROLE_USER';
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getRol(): ?int
-    {
-        return $this->rol;
-    }
-
-    public function setRol(int $rol): self
-    {
-        $this->rol = $rol;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -103,35 +105,35 @@ class Usuarios
         return $this;
     }
 
-    public function getPersonas(): ?Personas
+    public function getPersona(): ?Personas
     {
-        return $this->personas;
+        return $this->persona;
     }
 
-    public function setPersonas(Personas $personas): self
+    public function setPersona(Personas $persona): self
     {
-        $this->personas = $personas;
+        $this->persona = $persona;
 
         // set the owning side of the relation if necessary
-        if ($this !== $personas->getUsuarios()) {
-            $personas->setUsuarios($this);
+        if ($this !== $persona->getUsuario()) {
+            $persona->setUsuario($this);
         }
 
         return $this;
     }
 
-    public function getEmpresas(): ?Empresas
+    public function getEmpresa(): ?Empresas
     {
-        return $this->empresas;
+        return $this->empresa;
     }
 
-    public function setEmpresas(Empresas $empresas): self
+    public function setEmpresa(Empresas $empresa): self
     {
-        $this->empresas = $empresas;
+        $this->empresa = $empresa;
 
         // set the owning side of the relation if necessary
-        if ($this !== $empresas->getUsuarios()) {
-            $empresas->setUsuarios($this);
+        if ($this !== $empresa->getUsuario()) {
+            $empresa->setUsuario($this);
         }
 
         return $this;
@@ -147,8 +149,8 @@ class Usuarios
 
     public function addApadrinamientos(Apadrinamientos $apadrinamientos): self
     {
-        if (!$this->proyecto->contains($apadrinamientos)) {
-            $this->proyecto[] = $apadrinamientos;
+        if (!$this->apadrinamientos->contains($apadrinamientos)) {
+            $this->apadrinamientos[] = $apadrinamientos;
             $apadrinamientos->setUsuario($this);
         }
 
@@ -157,8 +159,8 @@ class Usuarios
 
     public function removeApadrinamientos(Apadrinamientos $apadrinamientos): self
     {
-        if ($this->proyecto->contains($apadrinamientos)) {
-            $this->proyecto->removeElement($apadrinamientos);
+        if ($this->apadrinamientos->contains($apadrinamientos)) {
+            $this->apadrinamientos->removeElement($apadrinamientos);
             // set the owning side to null (unless already changed)
             if ($apadrinamientos->getUsuario() === $this) {
                 $apadrinamientos->setUsuario(null);
@@ -197,5 +199,81 @@ class Usuarios
         }
 
         return $this;
+    }
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    public function addRol($rol): self
+    {
+        if (!$this->roles->contains($rol)) {
+            $this->roles[] = $rol;
+        }
+
+        return $this;
+    }
+
+    public function removeRol($rol): self
+    {
+        if ($this->roles->contains($rol)) {
+            $this->apadrinamientos->removeElement($rol);
+        }
+
+        return $this;
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    /** @see \Serializable::serialize() */
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+            // see section on salt below
+            // $this->salt,
+        ));
+    }
+
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->email,
+            $this->password,
+            // see section on salt below
+            // $this->salt
+            ) = unserialize($serialized, array('allowed_classes' => false));
+    }
+
+    /**
+     * @return String|null
+     */
+    public function getPlainPassword(): ?String
+    {
+        return $this->plain_password;
+    }
+
+    /**
+     * @param String $plain_password
+     */
+    public function setPlainPassword($plain_password): void
+    {
+        $this->plain_password = $plain_password;
     }
 }

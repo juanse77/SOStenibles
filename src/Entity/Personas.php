@@ -61,7 +61,7 @@ class Personas
     private $biografia;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="personas", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="persona", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $usuario;

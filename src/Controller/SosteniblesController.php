@@ -41,12 +41,5 @@ class SosteniblesController extends AbstractController {
 
         return $this->render('sostenibles/proyecto.html.twig', ['proyecto' => $proyecto]);
 	}
-	
-	public function home($id_usuario) {
-        return $this->render('sostenibles/home.html.twig', ['id_usuario' => $id_usuario]);
-	}
-	
-	public function logo($id_proyecto) {
-        return $this->render('sostenibles/logo.html.twig', ['id_proyecto' => $id_proyecto]);
-	}
+
 }

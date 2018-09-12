@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/login-register.css') }}">
+
+{% endblock %}
+
+{% block cuerpo %}
+
+    <div class="p-3 row justify-content-center">
+
+        <div class="marco col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            {% if error %}
+                <div class="alert alert-danger">
+                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                </div>
+            {% endif %}
+
+            <div class="titulo">
+                <h3 class="backColor">INGRESAR</h3>
+
+                <!-- INGRESO FACEBOOK -->
+                <div class="facebook">
+
+                    <p>
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="ml-2">Ingreso con Facebook</span>
+                    </p>
+
+                </div>
+
+                <!-- INGRESO GOOGLE -->
+                <a href="#">
+
+                    <div class="google">
+
+                        <p>
+                            <i class="fab fa-google"></i>
+                            <span class="ml-2">Ingreso con Google</span>
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <!-- INGRESO DIRECTO -->
+                {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+
+                    {{ form_row(form._username) }}
+                    {{ form_row(form._password) }}
+                    {{ form_row(form.entrar, {'attr' : {'value' : 'Enviar', 'class' : 'btn boton btn-block'}}) }}
+
+                {{ form_end(form) }}
+
+                <div class="centrado">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <div class="text-center mb-3">
+                    ¿No tienes una cuenta registrada? | <strong><a href="#">Registrarse</a></strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -49,7 +49,7 @@ class Empresas
     private $descripcion;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="empresas", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Usuarios", inversedBy="empresa", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $usuario;

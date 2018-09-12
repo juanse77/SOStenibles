@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/css/login-register.css') }}">
+
+{% endblock %}
+
+{% block cuerpo %}
+    <div class="p-3 row justify-content-center">
+
+        <div class="marco col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+
+            <div class="titulo">
+
+                <h3>REGISTRARSE</h3>
+
+                <!-- REGISTRO FACEBOOK -->
+                <div class="facebook">
+
+                    <p>
+                        <i class="fab fa-facebook-f"></i>
+                        <span class="ml-2">Ingreso con Facebook</span>
+                    </p>
+
+                </div>
+
+                <!-- REGISTRO GOOGLE -->
+                <a href="#">
+
+                    <div class="google">
+
+                        <p>
+                            <i class="fab fa-google"></i>
+                            <span class="ml-2">Ingreso con Google</span>
+                        </p>
+
+                    </div>
+
+                </a>
+
+                <!-- REGISTRO DIRECTO -->
+                {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.plain_password) }}
+
+                    <input type="submit" name="registro" id="registro" value="Enviar" class="btn boton btn-block">
+
+                {{ form_end(form) }}
+
+                <div class="centrado text-center mb-3">
+
+                    ¿Ya tienes una cuenta registrada? | <strong><a href="{{ path('security_login') }}">Ingresar</a></strong>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

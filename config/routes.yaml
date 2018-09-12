@@ -13,15 +13,23 @@ contacto:
 proyecto:
     path: /proyecto/{slug}
     controller: App\Controller\SosteniblesController::proyecto
-    
-home:
-    path: /home/{id_usuario}
-    controller: App\Controller\SosteniblesController::home
-    
-logo:
-    path: /logo/{id_proyecto}
-    controller: App\Controller\SosteniblesController::logo
-    
+
 nuevo_proyecto:
     path: /admin/proyectos/nuevo
     controller: App\Controller\AdminController::nuevo
+
+home:
+    path: /admin/home/{id}
+    controller: App\Controller\AdminController::home
+
+logo:
+    path: /admin/logo/{id}
+    controller: App\Controller\AdminController::logo
+
+security_login:
+    path: /login
+    controller: App\Controller\AdminController::login
+
+user_registration:
+    path: /register
+    controller: App\Controller\AdminController::register

@@ -7,7 +7,7 @@
 		<img class="img-fluid rounded imgIzq" src="{{ asset('build/img/'~proyecto.foto) }}" alt="{{ proyecto.nombre }}">
 	</figure>
 
-	{{ proyecto.descripcion }}
+	{{ proyecto.descripcion|nl2br }}
 
 	<h4 class="mb-3"><strong>Necesidad:</strong> 10 voluntarios, 100€</h4>
 
@@ -37,11 +37,6 @@
 		</div>
 	</div>
 
-{% endblock %}
-
-{% block modales %}
-	{% include('sostenibles/ingreso.html.twig') %}
-	{% include('sostenibles/registro.html.twig') %}
 {% endblock %}
 
 {% block javascripts %}
