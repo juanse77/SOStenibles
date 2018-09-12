@@ -26,9 +26,9 @@ class Usuarios implements UserInterface, \Serializable
     private $id;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="json")
      */
-    private $roles;
+    private $roles = [];
 
     /**
      * @ORM\Column(type="string", length=50, unique=true)
@@ -72,8 +72,6 @@ class Usuarios implements UserInterface, \Serializable
     {
         $this->apadrinamientos = new ArrayCollection();
         $this->likes = new ArrayCollection();
-        $this->roles = new ArrayCollection();
-        $this->roles[] = 'ROLE_USER';
     }
 
     public function getId(): ?int
@@ -81,9 +79,9 @@ class Usuarios implements UserInterface, \Serializable
         return $this->id;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
-        return $this->email;
+        return (string) $this->email;
     }
 
     public function setEmail(string $email): self
@@ -208,23 +206,15 @@ class Usuarios implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return $this->roles;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    public function addRol($rol): self
+    public function setRoles(array $roles)
     {
-        if (!$this->roles->contains($rol)) {
-            $this->roles[] = $rol;
-        }
-
-        return $this;
-    }
-
-    public function removeRol($rol): self
-    {
-        if ($this->roles->contains($rol)) {
-            $this->apadrinamientos->removeElement($rol);
-        }
+        $this->roles = $roles;
 
         return $this;
     }

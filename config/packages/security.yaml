@@ -5,9 +5,10 @@ security:
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
         mysql:
-            entity: { class: App\Entity\Usuarios, property: username }
+            entity:
+                class: App\Entity\Usuarios
+                property: email
 
     firewalls:
         dev:
