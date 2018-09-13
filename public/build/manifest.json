@@ -1,0 +1,15 @@
+{
+	"build/css/estilos.css": "build/css/estilos.css",
+	"build/css/modales.css": "build/css/modales.css",
+	"build/img/LogoCR.JPG":"build/img/LogoCR.JPG",
+	"build/img/LogoCR_ico.jpg":"build/img/LogoCR_ico.jpg",
+	"build/img/LogoCRref.JPG":"build/img/LogoCRref.JPG",
+	"build/img/LogoCruzRoja.JPG":"build/img/LogoCruzRoja.JPG",
+	"build/img/playa_accesible.jpg":"build/img/playa_accesible.jpg",
+	"build/img/playa_sucia1.jpg":"build/img/playa_sucia1.jpg",
+	"build/img/playa_sucia2.jpg":"build/img/playa_sucia2.jpg",
+	"build/img/senderismo-accesible2.jpg":"build/img/senderismo-accesible2.jpg",
+	"build/img/taller_medio_ambiente.png":"build/img/taller_medio_ambiente.png",
+	"build/img/user2.png":"build/img/user2.png",
+	"build/js/script.js":"build/js/script.js"
+}

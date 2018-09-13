@@ -1,0 +1,339 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14pt;
+}
+
+a, a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #555;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4{ 
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 200%;
+    padding: 10px;
+}
+
+h2{
+    font-size: 170%;
+    padding: 8px;
+}
+
+h3{
+    font-size: 150%;
+    padding: 5px;
+}
+
+h4{
+    font-size: 125%;
+    padding: 5px;
+}
+
+hr{
+    display: block;
+    height: 0;
+    border: 0;
+    border-top: 1px solid red;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+nav {
+    font-size: 90%;
+    background-color: red;
+}
+
+.nav-link {
+    margin: 5px;
+}
+
+.imgIzq {
+    float: left;
+    width: 50%;
+    padding-right: 20px;
+    margin: 10px 0 10px 0;
+}
+
+footer {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar-brand img{
+    height: 30px;
+    width: 30px;
+}
+
+sup {
+    font-size: 70%;
+}
+
+p {
+    text-indent: 2em;
+    margin: 0 0 10px 0;
+}
+
+.panel-transparent {
+    padding: 5px;
+    background: rgba(46, 51, 56, 0.5)!important;
+}
+
+.icono, .textoRojo, .like, .like:visited, .like:active {
+    color: red;
+}
+
+.like:hover {
+    color: #f66;
+}
+
+.dropdown-item {
+    font-size: 90%;
+}
+
+.dropdown-item:hover .activo {
+    background-color: #fdd;
+}
+
+.dropdown-item:active {
+    background-color: red;
+}
+
+.row img{
+    width: 100%;
+}
+
+.row p{
+    margin: 10px 0;
+    text-align: left;
+}
+
+.progress {
+    background-color: #f66;
+    margin-bottom: 20px;
+    border: 1px solid red;
+}
+
+.progress-bar {
+    background-color: red;
+}
+
+button, .boton{
+    background-color: red;
+    color: white;
+}
+
+a.boton{
+    color: white;
+}
+
+button:hover, .activo {
+    background-color: #f66;
+}
+
+button:active {
+    background-color: red;
+}
+
+.linea {
+    display: none;
+}
+
+.subir {
+    margin-top: -8px;
+}
+
+strong {
+    color: red;
+}
+
+.btn, .form-control {
+    font-size: 90%;
+    padding: 0.2em 0.6em;
+}
+
+.link, .link:visited {
+    color: red;
+}
+
+.link:hover {
+    color: #f66;
+}
+
+.banner{
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #fdd;
+    border: 1px solid red;
+	text-align: center;
+}
+
+legend {
+    font-size: 90%;
+}
+
+fieldset {
+    border: 1px solid red;
+    padding: 20px;
+}
+
+@media screen and (max-width: 575px){
+    /*xs*/
+    body, nav, .dropdown-item, .form-control {
+        font-size: 12pt;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    h1, .h1, .icono {
+        font-size: 150%;
+    }
+
+    h1, h2, h3, h4 {
+        padding: 5px;
+    }
+
+    .h1, .h2, .h3, .h4 {
+        padding: 5px;
+    }
+
+    h2, .h2 {
+        font-size: 135%;
+    }
+    
+    h3, .h3 {
+        font-size: 120%;
+    }
+    
+    h4, .h4 {
+        font-size: 100%;
+    }
+
+    button{
+        margin-left: auto;
+    }
+
+    .linea {
+        display: block;
+    }
+
+    .imgIzq {
+        width: 100%;
+        margin: 0;
+        padding: 10px 5px;
+    }
+
+    .contenido img {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px){
+    /*sm*/
+    body, nav, .dropdown-item, .form-control {
+        font-size: 12pt;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    h1, h2, h3, h4 {
+        padding: 5px;
+    }
+
+    .h1, .h2, .h3, .h4 {
+        padding: 5px;
+    }
+
+    h1, .h1 {
+        font-size: 175%;
+    }
+    
+    h2, .h2 {
+        font-size: 150%;
+    }
+    
+    h3, .h3 {
+        font-size: 135%;
+    }
+    
+    h4, .h4 {
+        font-size: 110%;
+    }
+
+    .linea {
+        display: block;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px){
+    /*md*/
+
+    .navbar {
+        padding: 10px;
+    }
+
+    h1, h2, h3, h4 {
+        padding: 5px;
+    }
+
+    .h1, .h2, .h3, .h4 {
+        padding: 5px;
+    }
+
+    h1, .h1 {
+        font-size: 175%;
+    }
+    
+    h2, .h2 {
+        font-size: 150%;
+    }
+    
+    h3, .h3 {
+        font-size: 135%;
+    }
+    
+    h4, .h4{
+        font-size: 110%;
+    }
+
+    nav, .dropdown-item, .form-control {
+        font-size: 14pt;
+    }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px){
+    /*lg*/
+    nav, .dropdown-item, .form-control {
+        font-size: 14pt;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    /*xl*/
+    nav, .dropdown-item, .form-control {
+        font-size: 12pt;
+    }
+
+    .navbar {
+        padding: 3px 20px;
+    }
+}
