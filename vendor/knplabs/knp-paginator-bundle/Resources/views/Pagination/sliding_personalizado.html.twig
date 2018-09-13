@@ -1,0 +1,45 @@
+{# default Sliding pagination control implementation #}
+
+{% if pageCount > 1 %}
+<div class="btn-toolbar mb-3 d-flex justify-content-center" role="toolbar" aria-label="Paginador">
+
+    {% if previous is defined %}
+        <div class="btn-group mr-2" role="group" aria-label="Atrás">
+            <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}" class="btn boton"><i class="fas fa-chevron-left"></i></a>
+        </div>
+    {% endif %}
+
+    {% if first is defined and current != first %}
+        <div class="btn-group mr-2" role="group" aria-label="Primera página">
+            <a href="{{ path(route, query|merge({(pageParameterName): first})) }}" class="btn boton">{{ first }}</a>
+        </div>
+    {% endif %}
+
+    <div class="btn-group mr-2" role="group" aria-label="Páginas centrales">
+
+        {% for page in pagesInRange %}
+
+            {% if page != current %}
+                <a href="{{ path(route, query|merge({(pageParameterName): page})) }}" class="btn boton">{{ page }}</a>
+            {% else %}
+                <div class="btn boton activo">{{ page }}</div>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+    {% if last is defined and current != last %}
+        <div class="btn-group mr-2" role="group" aria-label="Última página">
+            <a href="{{ path(route, query|merge({(pageParameterName): last})) }}" class="btn boton">{{ last }}</a>
+        </div>
+    {% endif %}
+
+    {% if next is defined %}
+        <div class="btn-group" role="group" aria-label="Adelante">
+            <a href="{{ path(route, query|merge({(pageParameterName): next})) }}" class="btn boton"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    {% endif %}
+
+</div>
+{% endif %}

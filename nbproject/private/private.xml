@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/templates/sostenibles/proyecto.html.twig</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/Controller/SosteniblesController.php</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/DataFixtures/BaseFixture.php</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/DataFixtures/ProyectosFixture.php</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/Controller/AdminController.php</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/templates/sostenibles/proyectos.html.twig</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/Entity/Proyectos.php</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/config/routes.yaml</file>
+            <file>file:/C:/MiXampp/htdocs/mis_sites/symfony4/src/DataFixtures/UsuariosFixture.php</file>
+        </group>
+    </open-files>
+</project-private>
