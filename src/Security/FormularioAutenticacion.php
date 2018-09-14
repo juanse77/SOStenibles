@@ -10,13 +10,11 @@ namespace App\Security;
 
 
 use App\Form\LoginForm;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
@@ -36,7 +34,7 @@ class FormularioAutenticacion extends AbstractFormLoginAuthenticator
 
     public function __construct(
         FormFactoryInterface $formFactory,
-        EntityManager $em,
+        EntityManagerInterface $em,
         RouterInterface $router,
         CsrfTokenManagerInterface $tm
     ){

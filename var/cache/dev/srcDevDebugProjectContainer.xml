@@ -484,7 +484,12 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Security\FormularioAutenticacion" class="App\Security\FormularioAutenticacion" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Security\FormularioAutenticacion" class="App\Security\FormularioAutenticacion" public="false" autowire="true" autoconfigure="true">
+      <argument type="service" id="form.factory"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="security.csrf.token_manager"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -2027,14 +2032,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -3059,7 +3056,8 @@
     </service>
     <service id="security.authentication.manager" class="Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager" public="false">
       <argument type="iterator">
-        <argument type="service" id="security.authentication.provider.dao.main"/>
+        <argument type="service" id="security.authentication.provider.guard.main"/>
+        <argument type="service" id="security.authentication.provider.anonymous.main"/>
       </argument>
       <argument>true</argument>
       <call method="setEventDispatcher">
@@ -3116,7 +3114,7 @@
       <argument type="service" id=".service_locator.ko2dQVn"/>
       <argument type="iterator">
         <argument key="security.firewall.map.context.dev" type="service" id=".security.request_matcher.zfHj2lW"/>
-        <argument key="security.firewall.map.context.main" type="service" id=".security.request_matcher.z8XqMvS"/>
+        <argument key="security.firewall.map.context.main">null</argument>
       </argument>
     </service>
     <service id="security.firewall.context" class="Symfony\Bundle\SecurityBundle\Security\FirewallContext" public="false" abstract="true">
@@ -3527,21 +3525,19 @@
     <service id="security.firewall.map.config.main" class="Symfony\Bundle\SecurityBundle\Security\FirewallConfig" public="false">
       <argument>main</argument>
       <argument>security.user_checker</argument>
-      <argument>.security.request_matcher.z8XqMvS</argument>
+      <argument>null</argument>
       <argument>true</argument>
       <argument>false</argument>
       <argument>security.user.provider.concrete.mysql</argument>
       <argument>main</argument>
-      <argument>security.authentication.basic_entry_point.main</argument>
+      <argument>App\Security\FormularioAutenticacion</argument>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
-        <argument>http_basic</argument>
+        <argument>guard</argument>
+        <argument>anonymous</argument>
       </argument>
       <argument>null</argument>
-    </service>
-    <service id=".security.request_matcher.z8XqMvS" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/admin</argument>
     </service>
     <service id="security.context_listener.0" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3553,32 +3549,39 @@
       <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
     </service>
-    <service id="security.authentication.provider.dao.main" class="Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider" public="false">
+    <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false">
+      <argument type="iterator">
+        <argument type="service" id="App\Security\FormularioAutenticacion"/>
+      </argument>
       <argument type="service" id="security.user.provider.concrete.mysql"/>
-      <argument type="service" id="security.user_checker"/>
       <argument>main</argument>
-      <argument type="service" id="security.encoder_factory.generic"/>
-      <argument>true</argument>
+      <argument type="service" id="security.user_checker"/>
     </service>
-    <service id="security.authentication.basic_entry_point.main" class="Symfony\Component\Security\Http\EntryPoint\BasicAuthenticationEntryPoint" public="false">
-      <argument>Secured Area</argument>
-    </service>
-    <service id="security.authentication.listener.basic.main" class="Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener" public="false">
-      <argument type="service" id="security.token_storage"/>
+    <service id="security.authentication.listener.guard.main" class="Symfony\Component\Security\Guard\Firewall\GuardAuthenticationListener" public="false">
+      <tag name="security.remember_me_aware" id="main" provider="security.user.provider.concrete.mysql"/>
+      <argument type="service" id="security.authentication.guard_handler"/>
       <argument type="service" id="security.authentication.manager"/>
       <argument>main</argument>
-      <argument type="service" id="security.authentication.basic_entry_point.main"/>
+      <argument type="iterator">
+        <argument type="service" id="App\Security\FormularioAutenticacion"/>
+      </argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
-      <call method="setSessionAuthenticationStrategy">
-        <argument type="service" id="security.authentication.session_strategy"/>
-      </call>
+    </service>
+    <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument>%container.build_hash%</argument>
+      <argument type="service" id="monolog.logger.security" on-invalid="null"/>
+      <argument type="service" id="security.authentication.manager"/>
+    </service>
+    <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
+      <argument>%container.build_hash%</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
       <argument type="service" id="security.http_utils"/>
       <argument>main</argument>
-      <argument type="service" id="security.authentication.basic_entry_point.main"/>
+      <argument type="service" id="App\Security\FormularioAutenticacion"/>
       <argument>null</argument>
       <argument>null</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
@@ -3588,7 +3591,8 @@
       <argument type="iterator">
         <argument type="service" id="security.channel_listener"/>
         <argument type="service" id="security.context_listener.0"/>
-        <argument type="service" id="security.authentication.listener.basic.main"/>
+        <argument type="service" id="security.authentication.listener.guard.main"/>
+        <argument type="service" id="security.authentication.listener.anonymous.main"/>
         <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service" id="security.exception_listener.main"/>

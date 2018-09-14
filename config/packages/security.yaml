@@ -15,10 +15,12 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            # anonymous: true
-            pattern: ^/admin
-            http_basic: ~
-            provider: mysql
+            anonymous: true
+
+            guard:
+                authenticators:
+                    - App\Security\FormularioAutenticacion
+
             # activate different ways to authenticate
 
             # http_basic: true
