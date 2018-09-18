@@ -58,14 +58,14 @@ class Proyectos
     private $apadrinamientos;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Likes", mappedBy="proyecto", orphanRemoval=true)
-     */
-    private $likes;
-
-    /**
      * @ORM\Column(type="string", length=127)
      */
     private $foto;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Usuarios", inversedBy="proyectos_likes")
+     */
+    private $likes;
 
     public function __construct()
     {
@@ -201,37 +201,6 @@ class Proyectos
         return $this;
     }
 
-    /**
-     * @return Collection|Likes[]
-     */
-    public function getLikes(): Collection
-    {
-        return $this->likes;
-    }
-
-    public function addLike(Likes $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-            $like->setProyecto($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLike(Likes $like): self
-    {
-        if ($this->likes->contains($like)) {
-            $this->likes->removeElement($like);
-            // set the owning side to null (unless already changed)
-            if ($like->getProyecto() === $this) {
-                $like->setProyecto(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getFoto(): ?string
     {
         return $this->foto;
@@ -240,6 +209,32 @@ class Proyectos
     public function setFoto(string $foto): self
     {
         $this->foto = $foto;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Usuarios[]
+     */
+    public function getLikes(): Collection
+    {
+        return $this->likes;
+    }
+
+    public function addLike(Usuarios $like): self
+    {
+        if (!$this->likes->contains($like)) {
+            $this->likes[] = $like;
+        }
+
+        return $this;
+    }
+
+    public function removeLike(Usuarios $like): self
+    {
+        if ($this->likes->contains($like)) {
+            $this->likes->removeElement($like);
+        }
 
         return $this;
     }

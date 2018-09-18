@@ -460,10 +460,6 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\LikesRepository" class="App\Repository\LikesRepository" public="false" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\NecesidadesRepository" class="App\Repository\NecesidadesRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -2032,6 +2028,14 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
+        <argument>console.command</argument>
+        <argument type="collection">
+          <argument type="service" id="debug.debug_handlers_listener"/>
+          <argument>configure</argument>
+        </argument>
+        <argument>2048</argument>
+      </call>
+      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -2799,7 +2803,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.ZvS0iwP"/>
+      <argument type="service" id=".service_locator.83ayqXI"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4445,8 +4449,6 @@
     <service id=".abstract.instanceof.App\Repository\AportacionesRepository" class="App\Repository\AportacionesRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EmpresasRepository" class="App\Repository\EmpresasRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EmpresasRepository" class="App\Repository\EmpresasRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LikesRepository" class="App\Repository\LikesRepository" public="false" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\LikesRepository" class="App\Repository\LikesRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NecesidadesRepository" class="App\Repository\NecesidadesRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NecesidadesRepository" class="App\Repository\NecesidadesRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PersonalRepository" class="App\Repository\PersonalRepository" public="false" autowire="true" abstract="true"/>
@@ -4716,13 +4718,12 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id=".service_locator.ZvS0iwP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.83ayqXI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ApadrinamientosRepository" type="service" id="App\Repository\ApadrinamientosRepository"/>
         <argument key="App\Repository\AportacionesRepository" type="service" id="App\Repository\AportacionesRepository"/>
         <argument key="App\Repository\EmpresasRepository" type="service" id="App\Repository\EmpresasRepository"/>
-        <argument key="App\Repository\LikesRepository" type="service" id="App\Repository\LikesRepository"/>
         <argument key="App\Repository\NecesidadesRepository" type="service" id="App\Repository\NecesidadesRepository"/>
         <argument key="App\Repository\PersonalRepository" type="service" id="App\Repository\PersonalRepository"/>
         <argument key="App\Repository\PersonasRepository" type="service" id="App\Repository\PersonasRepository"/>

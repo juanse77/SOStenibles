@@ -58,20 +58,21 @@ class Usuarios implements UserInterface, \Serializable
     private $apadrinamientos;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Likes", mappedBy="usuario", orphanRemoval=true)
-     */
-    private $likes;
-
-    /**
      * @Assert\NotBlank()
      * @Assert\Length(max=50)
      */
     private $plain_password;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Proyectos", mappedBy="likes")
+     */
+    private $proyectos_likes;
+
     public function __construct()
     {
         $this->apadrinamientos = new ArrayCollection();
         $this->likes = new ArrayCollection();
+        $this->proyectos_likes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -168,36 +169,7 @@ class Usuarios implements UserInterface, \Serializable
         return $this;
     }
 
-    /**
-     * @return Collection|Likes[]
-     */
-    public function getLikes(): Collection
-    {
-        return $this->likes;
-    }
 
-    public function addLike(Likes $like): self
-    {
-        if (!$this->likes->contains($like)) {
-            $this->likes[] = $like;
-            $like->setUsuario($this);
-        }
-
-        return $this;
-    }
-
-    public function removeLike(Likes $like): self
-    {
-        if ($this->likes->contains($like)) {
-            $this->likes->removeElement($like);
-            // set the owning side to null (unless already changed)
-            if ($like->getUsuario() === $this) {
-                $like->setUsuario(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getUsername()
     {
@@ -265,5 +237,33 @@ class Usuarios implements UserInterface, \Serializable
     public function setPlainPassword($plain_password): void
     {
         $this->plain_password = $plain_password;
+    }
+
+    /**
+     * @return Collection|Proyectos[]
+     */
+    public function getProyectosLikes(): Collection
+    {
+        return $this->proyectos_likes;
+    }
+
+    public function addProyectosLike(Proyectos $proyectosLike): self
+    {
+        if (!$this->proyectos_likes->contains($proyectosLike)) {
+            $this->proyectos_likes[] = $proyectosLike;
+            $proyectosLike->addLike($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProyectosLike(Proyectos $proyectosLike): self
+    {
+        if ($this->proyectos_likes->contains($proyectosLike)) {
+            $this->proyectos_likes->removeElement($proyectosLike);
+            $proyectosLike->removeLike($this);
+        }
+
+        return $this;
     }
 }
