@@ -9,44 +9,30 @@
 namespace App\Security;
 
 
-use App\Form\LoginForm;
-use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Form\FormFactoryInterface;
+use App\Repository\UsuariosRepository;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use Symfony\Component\Security\Csrf\CsrfToken;
-use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class FormularioAutenticacion extends AbstractFormLoginAuthenticator
 {
-    private $formFactory;
-    private $em;
     private $router;
-    private $tm;
+    private $userRepo;
+    private $usuario;
 
     use TargetPathTrait;
 
     public function __construct(
-        FormFactoryInterface $formFactory,
-        EntityManagerInterface $em,
-        RouterInterface $router,
-        CsrfTokenManagerInterface $tm
+        UsuariosRepository $userRepo,
+        RouterInterface $router
     ){
-        $this->formFactory = $formFactory;
-        $this->em = $em;
         $this->router = $router;
-        $this->tm = $tm;
-    }
-
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
-    {
-        return null;
+        $this->userRepo = $userRepo;
     }
 
     protected function getLoginUrl()
@@ -56,49 +42,40 @@ class FormularioAutenticacion extends AbstractFormLoginAuthenticator
 
     public function supports(Request $request)
     {
-        die("Entró en supports");
-        return true;
+        return $request->attributes->get('_route') === 'security_login'
+            && $request->isMethod('POST');
+        //die("Entró en supports");
     }
 
 
     public function getCredentials(Request $request)
     {
-        $csrfToken = $request->request->get('_csrf_token');
+        $login_form = $request->request->get('login_form');
+        return [
+            'email' => $login_form['_username'],
+            'password' => $login_form['_password']
+        ];
 
-        if (false === $this->tm->isTokenValid(new CsrfToken('authenticate', $csrfToken))) {
-            throw new InvalidCsrfTokenException('Invalid CSRF token.');
-        }
-
-        $isLoginSutmit = $request->attributes->get('_route') === 'security_login' && $request->isMethod('POST');
-        if(!$isLoginSutmit){
-            return;
-        }
-
-        $form = $this->formFactory->create(LoginForm::class);
-        $form->handleRequest($request);
-
-        $data = $form->getData();
-        dump($data);
-        return $data;
+        //dd($request->request->all());
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-        $username = $credentials['_username'];
-
-        return $this->em->getRepository('App:Usuarios')
-            ->findOneBy(['email' => $username]);
+        //dd($credentials);
+        $this->usuario = $this->userRepo->findOneBy(['email' => $credentials['email']]);
+        return $this->usuario;
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
-        $password = $credentials['_password'];
+        //dd($user);
 
-        if($password == 'Sostenibles'){
-            return true;
-        }
+        return true;
+    }
 
-        return false;
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
+    {
+        return new RedirectResponse($this->router->generate('home', ['id' => $this->usuario->getId()]));
     }
 
 }

@@ -178,7 +178,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
 \t\t\t\t\t\t\t\t<a class=\"link\" href=\"";
         // line 88
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id_proyecto" => 1));
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id" => 1));
         echo "\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
@@ -338,7 +338,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t\tEn curso
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
-\t\t\t\t\t\t\t\t<a class=\"link\" href=\"{{ path('logo', {'id_proyecto': 1}) }}\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
+\t\t\t\t\t\t\t\t<a class=\"link\" href=\"{{ path('logo', {'id': 1}) }}\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
 
