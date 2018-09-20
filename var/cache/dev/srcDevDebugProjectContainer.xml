@@ -1227,6 +1227,8 @@
             <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
             <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles\vendor\symfony\security\Core/Resources/translations\security.es.xlf</argument>
             <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.es.xliff</argument>
+            <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles/translations\security.es.yaml</argument>
+            <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles/translations\security.es.yaml</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\MiXampp\htdocs\mis_sites\SOStenibles\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
@@ -3136,6 +3138,14 @@
       <argument type="service" id="request_stack" on-invalid="null"/>
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="security.token_storage" on-invalid="null"/>
+      <call method="registerListener">
+        <argument>main</argument>
+        <argument>security_logout</argument>
+        <argument>logout</argument>
+        <argument>_csrf_token</argument>
+        <argument>null</argument>
+        <argument>null</argument>
+      </call>
     </service>
     <service id="security.user.provider.missing" class="Symfony\Component\Security\Core\User\MissingUserProvider" public="false" abstract="true">
       <argument></argument>
@@ -3544,6 +3554,26 @@
       <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
       <argument type="service" id="security.authentication.trust_resolver"/>
     </service>
+    <service id="security.logout_listener.main" class="Symfony\Component\Security\Http\Firewall\LogoutListener" public="false">
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="security.http_utils"/>
+      <argument type="service" id="security.logout.success_handler.main"/>
+      <argument type="collection">
+        <argument key="csrf_parameter">_csrf_token</argument>
+        <argument key="csrf_token_id">logout</argument>
+        <argument key="logout_path">security_logout</argument>
+      </argument>
+      <call method="addHandler">
+        <argument type="service" id="security.logout.handler.csrf_token_clearing"/>
+      </call>
+      <call method="addHandler">
+        <argument type="service" id="security.logout.handler.session"/>
+      </call>
+    </service>
+    <service id="security.logout.success_handler.main" class="Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler" public="false">
+      <argument type="service" id="security.http_utils"/>
+      <argument>/</argument>
+    </service>
     <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider" public="false">
       <argument type="iterator">
         <argument type="service" id="App\Security\FormularioAutenticacion"/>
@@ -3591,7 +3621,7 @@
         <argument type="service" id="security.access_listener"/>
       </argument>
       <argument type="service" id="security.exception_listener.main"/>
-      <argument>null</argument>
+      <argument type="service" id="security.logout_listener.main"/>
       <argument type="service" id="security.firewall.map.config.main"/>
     </service>
     <service id=".service_locator.ko2dQVn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">

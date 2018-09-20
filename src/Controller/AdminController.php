@@ -38,6 +38,11 @@ class AdminController extends AbstractController {
         ]);
     }
 
+    public function logout()
+    {
+        throw new \Exception("No llegará nunca aquí.");
+    }
+
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         // 1) build the form

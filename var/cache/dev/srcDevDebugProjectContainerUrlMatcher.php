@@ -74,6 +74,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/contacto' => array(array('_route' => 'contacto', '_controller' => 'App\\Controller\\SosteniblesController::contacto'), null, null, null),
                     '/admin/proyectos/nuevo' => array(array('_route' => 'nuevo_proyecto', '_controller' => 'App\\Controller\\AdminController::nuevo'), null, null, null),
                     '/login' => array(array('_route' => 'security_login', '_controller' => 'App\\Controller\\AdminController::login'), null, null, null),
+                    '/logout' => array(array('_route' => 'security_logout', '_controller' => 'App\\Controller\\AdminController::logout'), null, null, null),
                     '/register' => array(array('_route' => 'user_registration', '_controller' => 'App\\Controller\\AdminController::register'), null, null, null),
                 );
 

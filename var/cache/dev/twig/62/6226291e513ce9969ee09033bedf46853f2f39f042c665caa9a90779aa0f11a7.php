@@ -116,7 +116,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
         // line 43
         if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 43, $this->source); })())) {
             // line 44
-            echo "                    <div class=\"mx-3 alert alert-danger\">
+            echo "                    <div class=\"error alert alert-danger\">
                         ";
             // line 45
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 45, $this->source); })()), "messageKey", array()), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 45, $this->source); })()), "messageData", array()), "security"), "html", null, true);
@@ -233,7 +233,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
                 </a>
 
                 {% if error %}
-                    <div class=\"mx-3 alert alert-danger\">
+                    <div class=\"error alert alert-danger\">
                         {{ error.messageKey|trans(error.messageData, 'security') }}
                     </div>
                 {% endif %}

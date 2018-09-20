@@ -136,7 +136,7 @@ a.boton{
     color: white;
 }
 
-button:hover, .activo {
+button:hover, .activo, .boton:hover{
     background-color: #f66;
 }
 

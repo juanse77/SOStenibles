@@ -34,7 +34,7 @@
     text-indent: 0;
 }
 
-.marco form {
+.marco form, .marco .error {
     margin: 10px 20px;
 }
 

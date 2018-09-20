@@ -40,6 +40,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'home' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::home'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/home')), array(), array()),
         'logo' => array(array('id'), array('_controller' => 'App\\Controller\\AdminController::logo'), array(), array(array('variable', '/', '[^/]++', 'id'), array('text', '/admin/logo')), array(), array()),
         'security_login' => array(array(), array('_controller' => 'App\\Controller\\AdminController::login'), array(), array(array('text', '/login')), array(), array()),
+        'security_logout' => array(array(), array('_controller' => 'App\\Controller\\AdminController::logout'), array(), array(array('text', '/logout')), array(), array()),
         'user_registration' => array(array(), array('_controller' => 'App\\Controller\\AdminController::register'), array(), array(array('text', '/register')), array(), array()),
     );
         }

@@ -30,6 +30,10 @@ security_login:
     path: /login
     controller: App\Controller\AdminController::login
 
+security_logout:
+    path: /logout
+    controller: App\Controller\AdminController::logout
+
 user_registration:
     path: /register
     controller: App\Controller\AdminController::register

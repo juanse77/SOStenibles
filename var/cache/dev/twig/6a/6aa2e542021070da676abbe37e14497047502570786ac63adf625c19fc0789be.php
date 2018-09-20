@@ -204,9 +204,6 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         echo "
 \t</div>
 
-\t";
-        // line 88
-        echo "
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -216,7 +213,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 
     }
 
-    // line 91
+    // line 67
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -225,14 +222,14 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 92
+        // line 68
         echo "\t";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 \t
 \t<!--Javascript personal-->
 \t<script src=\"";
-        // line 95
+        // line 71
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/js/script.js"), "html", null, true);
         echo "\"></script>
 
@@ -257,7 +254,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 
     public function getDebugInfo()
     {
-        return array (  236 => 95,  229 => 92,  220 => 91,  209 => 88,  203 => 62,  197 => 58,  170 => 41,  157 => 31,  150 => 29,  142 => 26,  137 => 23,  133 => 22,  123 => 15,  119 => 13,  110 => 12,  92 => 10,  74 => 8,  62 => 5,  57 => 4,  48 => 3,  15 => 1,);
+        return array (  233 => 71,  226 => 68,  217 => 67,  203 => 62,  197 => 58,  170 => 41,  157 => 31,  150 => 29,  142 => 26,  137 => 23,  133 => 22,  123 => 15,  119 => 13,  110 => 12,  92 => 10,  74 => 8,  62 => 5,  57 => 4,  48 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -325,30 +322,6 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 \t<div class=\"paginador\">
         {{ knp_pagination_render(pagination) }}
 \t</div>
-
-\t{#<div class=\"btn-toolbar mb-3 d-flex justify-content-center\" role=\"toolbar\" aria-label=\"Toolbar with button groups\">
-        <div class=\"btn-group mr-2\" role=\"group\" aria-label=\"atras\">
-\t\t\t<button type=\"button\" class=\"btn\"><i class=\"fas fa-chevron-left\"></i></button>
-        </div>
-
-\t\t<div class=\"btn-group mr-2\" role=\"group\" aria-label=\"Primera página\">
-\t\t\t<button type=\"button\" class=\"btn\">1</button>
-        </div>
-
-\t\t<div class=\"btn-group mr-2\" role=\"group\" aria-label=\"Páginas centrales\">
-\t\t\t<button type=\"button\" class=\"btn\">4</button>
-\t\t\t<button type=\"button\" class=\"btn activo\">5</button>
-\t\t\t<button type=\"button\" class=\"btn\">6</button>
-        </div>
-
-\t\t<div class=\"btn-group mr-2\" role=\"group\" aria-label=\"Última página\">
-\t\t\t<button type=\"button\" class=\"btn\">14</button>
-        </div>
-
-\t\t<div class=\"btn-group\" role=\"group\" aria-label=\"atras\">
-\t\t\t<button type=\"button\" class=\"btn\"><i class=\"fas fa-chevron-right\"></i></button>
-        </div>
-\t</div>#}
 
 {% endblock %}
 

@@ -21,6 +21,9 @@ security:
                 authenticators:
                     - App\Security\FormularioAutenticacion
 
+            logout:
+                path: security_logout
+
             # activate different ways to authenticate
 
             # http_basic: true
