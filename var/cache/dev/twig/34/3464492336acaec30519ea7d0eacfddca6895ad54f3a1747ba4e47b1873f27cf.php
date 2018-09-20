@@ -15,6 +15,8 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
         $this->parent = $this->loadTemplate("base.html.twig", "security/register.html.twig", 1);
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
+            'title' => array($this, 'block_title'),
+            'item2' => array($this, 'block_item2'),
             'cuerpo' => array($this, 'block_cuerpo'),
         );
     }
@@ -71,6 +73,42 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
     }
 
     // line 10
+    public function block_title($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Registro SOStenibles";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 12
+    public function block_item2($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
+
+        echo "active";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 14
     public function block_cuerpo($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -79,7 +117,7 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "cuerpo"));
 
-        // line 11
+        // line 15
         echo "    <div class=\"p-3 row justify-content-center\">
 
         <div class=\"marco col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5\">
@@ -114,30 +152,30 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
 
                 <!-- REGISTRO DIRECTO -->
                 ";
-        // line 44
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 44, $this->source); })()), 'form_start', array("attr" => array("novalidate" => "novalidate")));
+        // line 48
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 48, $this->source); })()), 'form_start', array("attr" => array("novalidate" => "novalidate")));
         echo "
 
                     ";
-        // line 46
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 46, $this->source); })()), "email", array()), 'row');
+        // line 50
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 50, $this->source); })()), "email", array()), 'row');
         echo "
                     ";
-        // line 47
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 47, $this->source); })()), "plain_password", array()), 'row');
+        // line 51
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 51, $this->source); })()), "plain_password", array()), 'row');
         echo "
 
                     <input type=\"submit\" name=\"registro\" id=\"registro\" value=\"Enviar\" class=\"btn boton btn-block\">
 
                 ";
-        // line 51
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 51, $this->source); })()), 'form_end');
+        // line 55
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 55, $this->source); })()), 'form_end');
         echo "
 
                 <div class=\"centrado text-center mb-3\">
 
                     ¿Ya tienes una cuenta registrada? | <strong><a href=\"";
-        // line 55
+        // line 59
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_login");
         echo "\">Ingresar</a></strong>
 
@@ -169,7 +207,7 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
 
     public function getDebugInfo()
     {
-        return array (  141 => 55,  134 => 51,  127 => 47,  123 => 46,  118 => 44,  83 => 11,  74 => 10,  61 => 6,  57 => 5,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  179 => 59,  172 => 55,  165 => 51,  161 => 50,  156 => 48,  121 => 15,  112 => 14,  94 => 12,  76 => 10,  63 => 6,  59 => 5,  56 => 4,  47 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -182,6 +220,10 @@ class __TwigTemplate_dc9947e17355e2c571834f074785d3c0f44f06a8bca985acd32abd7c9f8
     <link rel=\"stylesheet\" href=\"{{ asset('build/css/login-register.css') }}\">
 
 {% endblock %}
+
+{% block title %}Registro SOStenibles{% endblock %}
+
+{% block item2 %}active{% endblock %}
 
 {% block cuerpo %}
     <div class=\"p-3 row justify-content-center\">

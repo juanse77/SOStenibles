@@ -17,6 +17,11 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
             'stylesheets' => array($this, 'block_stylesheets'),
             'title' => array($this, 'block_title'),
             'cabecera' => array($this, 'block_cabecera'),
+            'item1' => array($this, 'block_item1'),
+            'item2' => array($this, 'block_item2'),
+            'item3' => array($this, 'block_item3'),
+            'item4' => array($this, 'block_item4'),
+            'item5' => array($this, 'block_item5'),
             'criterio' => array($this, 'block_criterio'),
             'cuerpo' => array($this, 'block_cuerpo'),
             'modales' => array($this, 'block_modales'),
@@ -176,18 +181,27 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
 \t\t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
 \t\t\t\t\t\t<ul class=\"navbar-nav mr-auto\">
-\t\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<li class=\"nav-item ";
+        // line 39
+        $this->displayBlock('item1', $context, $blocks);
+        echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Compromiso ambiental</a>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<li class=\"nav-item ";
+        // line 43
+        $this->displayBlock('item2', $context, $blocks);
+        echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"";
         // line 44
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proyectos");
         echo "\">Apadrina</a>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item dropdown\">
+\t\t\t\t\t\t\t<li class=\"nav-item dropdown ";
+        // line 47
+        $this->displayBlock('item3', $context, $blocks);
+        echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"dropDownHowto\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
 \t\t\t\t\t\t\t\t\tCómo funciona
 \t\t\t\t\t\t\t\t</a>
@@ -198,7 +212,10 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item dropdown\">
+\t\t\t\t\t\t\t<li class=\"nav-item dropdown ";
+        // line 58
+        $this->displayBlock('item4', $context, $blocks);
+        echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"dropDownPerfil\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
 \t\t\t\t\t\t\t\t\tMi perfil
 \t\t\t\t\t\t\t\t</a>
@@ -214,7 +231,10 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item active\">
+\t\t\t\t\t\t\t<li class=\"nav-item ";
+        // line 68
+        $this->displayBlock('item5', $context, $blocks);
+        echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"";
         // line 69
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contacto");
@@ -244,6 +264,92 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
+    // line 39
+    public function block_item1($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item1"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item1"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 43
+    public function block_item2($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 47
+    public function block_item3($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item3"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item3"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 58
+    public function block_item4($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item4"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item4"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 68
+    public function block_item5($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item5"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item5"));
+
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 74
     public function block_criterio($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -333,7 +439,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     public function getDebugInfo()
     {
-        return array (  307 => 96,  298 => 95,  281 => 93,  264 => 85,  231 => 74,  227 => 73,  220 => 69,  212 => 64,  208 => 63,  186 => 44,  169 => 30,  165 => 29,  161 => 27,  152 => 26,  134 => 21,  122 => 16,  118 => 15,  113 => 12,  104 => 11,  92 => 105,  90 => 95,  87 => 94,  85 => 93,  76 => 86,  74 => 85,  68 => 81,  66 => 26,  58 => 21,  53 => 19,  50 => 18,  48 => 11,  36 => 1,);
+        return array (  413 => 96,  404 => 95,  387 => 93,  370 => 85,  353 => 74,  336 => 68,  319 => 58,  302 => 47,  285 => 43,  268 => 39,  251 => 74,  247 => 73,  240 => 69,  236 => 68,  229 => 64,  225 => 63,  217 => 58,  203 => 47,  197 => 44,  193 => 43,  186 => 39,  174 => 30,  170 => 29,  166 => 27,  157 => 26,  139 => 21,  127 => 16,  123 => 15,  118 => 12,  109 => 11,  97 => 105,  95 => 95,  92 => 94,  90 => 93,  81 => 86,  79 => 85,  73 => 81,  71 => 26,  63 => 21,  58 => 19,  55 => 18,  53 => 11,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -376,15 +482,15 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
 \t\t\t\t\t<div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
 \t\t\t\t\t\t<ul class=\"navbar-nav mr-auto\">
-\t\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<li class=\"nav-item {% block item1 %}{% endblock %}\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"#\">Compromiso ambiental</a>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item\">
+\t\t\t\t\t\t\t<li class=\"nav-item {% block item2 %}{% endblock %}\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"{{ path('proyectos') }}\">Apadrina</a>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item dropdown\">
+\t\t\t\t\t\t\t<li class=\"nav-item dropdown {% block item3 %}{% endblock %}\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"dropDownHowto\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
 \t\t\t\t\t\t\t\t\tCómo funciona
 \t\t\t\t\t\t\t\t</a>
@@ -395,7 +501,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item dropdown\">
+\t\t\t\t\t\t\t<li class=\"nav-item dropdown {% block item4 %}{% endblock %}\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"dropDownPerfil\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
 \t\t\t\t\t\t\t\t\tMi perfil
 \t\t\t\t\t\t\t\t</a>
@@ -405,7 +511,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</li>
 
-\t\t\t\t\t\t\t<li class=\"nav-item active\">
+\t\t\t\t\t\t\t<li class=\"nav-item {% block item5 %}{% endblock %}\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"{{ path('contacto') }}\">Contacto</a>
 \t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t</ul>

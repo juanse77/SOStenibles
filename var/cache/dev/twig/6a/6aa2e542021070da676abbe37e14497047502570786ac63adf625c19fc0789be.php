@@ -16,6 +16,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
             'title' => array($this, 'block_title'),
+            'item2' => array($this, 'block_item2'),
             'criterio' => array($this, 'block_criterio'),
             'cuerpo' => array($this, 'block_cuerpo'),
             'javascripts' => array($this, 'block_javascripts'),
@@ -89,15 +90,15 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
     }
 
     // line 10
-    public function block_criterio($context, array $blocks = array())
+    public function block_item2($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "criterio"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "criterio"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item2"));
 
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 10, $this->source); })()), "request", array()), "query", array()), "get", array(0 => "q"), "method"), "html", null, true);
+        echo "active";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -107,6 +108,24 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
     }
 
     // line 12
+    public function block_criterio($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "criterio"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "criterio"));
+
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 12, $this->source); })()), "request", array()), "query", array()), "get", array(0 => "q"), "method"), "html", null, true);
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 14
     public function block_cuerpo($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -115,12 +134,12 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "cuerpo"));
 
-        // line 13
+        // line 15
         echo "\t<div class=\"banner rounded\">
         <h1>Comienza tu compromiso con el medioambiente</h1>
         <h2>Tenemos ";
-        // line 15
-        echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (isset($context["num_proyectos_activos"]) || array_key_exists("num_proyectos_activos", $context) ? $context["num_proyectos_activos"] : (function () { throw new Twig_Error_Runtime('Variable "num_proyectos_activos" does not exist.', 15, $this->source); })())), "html", null, true);
+        // line 17
+        echo twig_escape_filter($this->env, twig_number_format_filter($this->env, (isset($context["num_proyectos_activos"]) || array_key_exists("num_proyectos_activos", $context) ? $context["num_proyectos_activos"] : (function () { throw new Twig_Error_Runtime('Variable "num_proyectos_activos" does not exist.', 17, $this->source); })())), "html", null, true);
         echo " proyectos a la espera de ser apadrinados</h2>
 \t</div>
 
@@ -129,16 +148,16 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 \t<div class=\"row\">
 
         ";
-        // line 22
+        // line 24
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 22, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 24, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["proyecto"]) {
-            // line 23
+            // line 25
             echo "
 \t\t\t<article class=\"col-md-6 pr-md-4\">
 
 \t\t\t\t<h3 class=\"text-center\"><a href=\"";
-            // line 26
+            // line 28
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proyecto", array("slug" => twig_get_attribute($this->env, $this->source, $context["proyecto"], "slug", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["proyecto"], "nombre", array()), "html", null, true);
@@ -146,14 +165,14 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 
 \t\t\t\t<figure>
 \t\t\t\t\t<img class=\"img-fluid rounded\" src=\"";
-            // line 29
+            // line 31
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("build/img/" . twig_get_attribute($this->env, $this->source, $context["proyecto"], "foto", array()))), "html", null, true);
             echo "\" alt=\"";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["proyecto"], "nombre", array()), "html", null, true);
             echo "\">
 \t\t\t\t</figure>
 \t\t\t\t<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex cum nulla quibusdam saepe repudiandae vitae facilis nobis dolores quasi, quis quidem non nihil suscipit? Tempora repellat explicabo nisi <a href=\"";
-            // line 31
+            // line 33
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proyecto", array("slug" => twig_get_attribute($this->env, $this->source, $context["proyecto"], "slug", array()))), "html", null, true);
             echo "\" class=\"link\">Leer más...</a></p>
 
@@ -166,7 +185,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 \t\t\t\t<div class=\"d-flex justify-content-between align-items-center\">
 \t\t\t\t\t<div class=\"h3\" id=\"like1\">
 \t\t\t\t\t\t<a id=\"corazon";
-            // line 41
+            // line 43
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["proyecto"], "id", array()), "html", null, true);
             echo "\" href=\"javascript:void(0);\" onclick=\"gustar(";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["proyecto"], "id", array()), "html", null, true);
@@ -193,14 +212,14 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['proyecto'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 58
+        // line 60
         echo "
 \t</div>
 
 \t<div class=\"paginador\">
         ";
-        // line 62
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 62, $this->source); })()));
+        // line 64
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new Twig_Error_Runtime('Variable "pagination" does not exist.', 64, $this->source); })()));
         echo "
 \t</div>
 
@@ -213,7 +232,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 
     }
 
-    // line 67
+    // line 69
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -222,14 +241,14 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 68
+        // line 70
         echo "\t";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 \t
 \t<!--Javascript personal-->
 \t<script src=\"";
-        // line 71
+        // line 73
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/js/script.js"), "html", null, true);
         echo "\"></script>
 
@@ -254,7 +273,7 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 
     public function getDebugInfo()
     {
-        return array (  233 => 71,  226 => 68,  217 => 67,  203 => 62,  197 => 58,  170 => 41,  157 => 31,  150 => 29,  142 => 26,  137 => 23,  133 => 22,  123 => 15,  119 => 13,  110 => 12,  92 => 10,  74 => 8,  62 => 5,  57 => 4,  48 => 3,  15 => 1,);
+        return array (  252 => 73,  245 => 70,  236 => 69,  222 => 64,  216 => 60,  189 => 43,  176 => 33,  169 => 31,  161 => 28,  156 => 25,  152 => 24,  142 => 17,  138 => 15,  129 => 14,  111 => 12,  93 => 10,  75 => 8,  63 => 5,  58 => 4,  49 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -267,6 +286,8 @@ class __TwigTemplate_095c7a4730dc474e049b4443ca220aec456b233d925d9cf02fe283496cd
 {% endblock %}
 
 {% block title %}Nuestros proyectos{% endblock %}
+
+{% block item2 %}active{% endblock %}
 
 {% block criterio %}{{ app.request.query.get('q') }}{% endblock %}
 

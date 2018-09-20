@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}{{ proyecto.nombre }}{% endblock %}
+
+{% block item2 %}active{% endblock %}
+
 {% block cuerpo %}
 
 	<h3>{{ proyecto.nombre }}</h3>
