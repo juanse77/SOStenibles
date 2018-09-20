@@ -28,7 +28,17 @@
 		<div class="col-8 col-md-10">
 			<div class="mb-2">
 				<strong>Usuario: </strong>
-				--Nombre completo usuario--
+				{% for rol in usuario.roles %}
+						{{ rol }}
+					{% if rol == 'ROLE_PERSONA' %}
+						{{ usuario.persona.nombre }}
+					{% endif %}
+
+					{% if rol == 'ROLE_EMPRESA' %}
+                        {{ usuario.empresa.nombre }}
+                    {% endif %}
+
+				{% endfor %}
 			</div>
 			<div>
 				<a class="link" href="#">Editar perfil</a>

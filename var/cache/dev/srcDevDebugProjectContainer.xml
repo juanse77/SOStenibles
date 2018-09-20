@@ -483,6 +483,7 @@
     <service id="App\Security\FormularioAutenticacion" class="App\Security\FormularioAutenticacion" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="App\Repository\UsuariosRepository"/>
       <argument type="service" id="router.default"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>

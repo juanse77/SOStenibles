@@ -84,20 +84,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
     <div class=\"p-3 row justify-content-center\">
 
         <div class=\"marco col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5\">
-            ";
-        // line 15
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 15, $this->source); })())) {
-            // line 16
-            echo "                <div class=\"alert alert-danger\">
-                    ";
-            // line 17
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 17, $this->source); })()), "messageKey", array()), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 17, $this->source); })()), "messageData", array()), "security"), "html", null, true);
-            echo "
-                </div>
-            ";
-        }
-        // line 20
-        echo "
+
             <div class=\"titulo\">
                 <h3 class=\"backColor\">INGRESAR</h3>
 
@@ -125,28 +112,42 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
                 </a>
 
+                ";
+        // line 43
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 43, $this->source); })())) {
+            // line 44
+            echo "                    <div class=\"mx-3 alert alert-danger\">
+                        ";
+            // line 45
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 45, $this->source); })()), "messageKey", array()), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new Twig_Error_Runtime('Variable "error" does not exist.', 45, $this->source); })()), "messageData", array()), "security"), "html", null, true);
+            echo "
+                    </div>
+                ";
+        }
+        // line 48
+        echo "
                 <!-- INGRESO DIRECTO -->
                 ";
-        // line 49
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 49, $this->source); })()), 'form_start', array("attr" => array("novalidate" => "novalidate")));
+        // line 50
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 50, $this->source); })()), 'form_start', array("attr" => array("novalidate" => "novalidate")));
         echo "
 
                     ";
-        // line 51
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 51, $this->source); })()), "_username", array()), 'row');
-        echo "
-                    ";
         // line 52
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 52, $this->source); })()), "_password", array()), 'row');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 52, $this->source); })()), "_username", array()), 'row');
         echo "
                     ";
         // line 53
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 53, $this->source); })()), "entrar", array()), 'row', array("attr" => array("value" => "Enviar", "class" => "btn boton btn-block")));
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 53, $this->source); })()), "_password", array()), 'row');
+        echo "
+                    ";
+        // line 54
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 54, $this->source); })()), "entrar", array()), 'row', array("attr" => array("value" => "Enviar", "class" => "btn boton btn-block")));
         echo "
 
                 ";
-        // line 55
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 55, $this->source); })()), 'form_end');
+        // line 56
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 56, $this->source); })()), 'form_end');
         echo "
 
                 <div class=\"centrado\">
@@ -184,7 +185,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
     public function getDebugInfo()
     {
-        return array (  149 => 55,  144 => 53,  140 => 52,  136 => 51,  131 => 49,  100 => 20,  94 => 17,  91 => 16,  89 => 15,  83 => 11,  74 => 10,  61 => 6,  57 => 5,  54 => 4,  45 => 3,  15 => 1,);
+        return array (  150 => 56,  145 => 54,  141 => 53,  137 => 52,  132 => 50,  128 => 48,  122 => 45,  119 => 44,  117 => 43,  83 => 11,  74 => 10,  61 => 6,  57 => 5,  54 => 4,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -203,11 +204,6 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
     <div class=\"p-3 row justify-content-center\">
 
         <div class=\"marco col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5\">
-            {% if error %}
-                <div class=\"alert alert-danger\">
-                    {{ error.messageKey|trans(error.messageData, 'security') }}
-                </div>
-            {% endif %}
 
             <div class=\"titulo\">
                 <h3 class=\"backColor\">INGRESAR</h3>
@@ -235,6 +231,12 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
                     </div>
 
                 </a>
+
+                {% if error %}
+                    <div class=\"mx-3 alert alert-danger\">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
 
                 <!-- INGRESO DIRECTO -->
                 {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}

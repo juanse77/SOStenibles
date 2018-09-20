@@ -116,8 +116,44 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t<div class=\"col-8 col-md-10\">
 \t\t\t<div class=\"mb-2\">
 \t\t\t\t<strong>Usuario: </strong>
-\t\t\t\t--Nombre completo usuario--
-\t\t\t</div>
+\t\t\t\t";
+        // line 31
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 31, $this->source); })()), "roles", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["rol"]) {
+            // line 32
+            echo "\t\t\t\t\t\t";
+            echo twig_escape_filter($this->env, $context["rol"], "html", null, true);
+            echo "
+\t\t\t\t\t";
+            // line 33
+            if (($context["rol"] == "ROLE_PERSONA")) {
+                // line 34
+                echo "\t\t\t\t\t\t";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 34, $this->source); })()), "persona", array()), "nombre", array()), "html", null, true);
+                echo "
+\t\t\t\t\t";
+            }
+            // line 36
+            echo "
+\t\t\t\t\t";
+            // line 37
+            if (($context["rol"] == "ROLE_EMPRESA")) {
+                // line 38
+                echo "                        ";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 38, $this->source); })()), "empresa", array()), "nombre", array()), "html", null, true);
+                echo "
+                    ";
+            }
+            // line 40
+            echo "
+\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rol'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 42
+        echo "\t\t\t</div>
 \t\t\t<div>
 \t\t\t\t<a class=\"link\" href=\"#\">Editar perfil</a>
 \t\t\t</div>
@@ -167,7 +203,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 81
+        // line 91
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -177,7 +213,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
 \t\t\t\t\t\t\t\t<a class=\"link\" href=\"";
-        // line 88
+        // line 98
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id" => 1));
         echo "\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
 \t\t\t\t\t\t\t</div>
@@ -188,7 +224,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 96
+        // line 106
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/senderimos-accesible2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -206,7 +242,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 111
+        // line 121
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -246,7 +282,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     public function getDebugInfo()
     {
-        return array (  210 => 111,  192 => 96,  181 => 88,  171 => 81,  113 => 26,  106 => 21,  97 => 20,  79 => 18,  55 => 4,  46 => 3,  15 => 1,);
+        return array (  246 => 121,  228 => 106,  217 => 98,  207 => 91,  156 => 42,  149 => 40,  143 => 38,  141 => 37,  138 => 36,  132 => 34,  130 => 33,  125 => 32,  121 => 31,  113 => 26,  106 => 21,  97 => 20,  79 => 18,  55 => 4,  46 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -281,7 +317,17 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t<div class=\"col-8 col-md-10\">
 \t\t\t<div class=\"mb-2\">
 \t\t\t\t<strong>Usuario: </strong>
-\t\t\t\t--Nombre completo usuario--
+\t\t\t\t{% for rol in usuario.roles %}
+\t\t\t\t\t\t{{ rol }}
+\t\t\t\t\t{% if rol == 'ROLE_PERSONA' %}
+\t\t\t\t\t\t{{ usuario.persona.nombre }}
+\t\t\t\t\t{% endif %}
+
+\t\t\t\t\t{% if rol == 'ROLE_EMPRESA' %}
+                        {{ usuario.empresa.nombre }}
+                    {% endif %}
+
+\t\t\t\t{% endfor %}
 \t\t\t</div>
 \t\t\t<div>
 \t\t\t\t<a class=\"link\" href=\"#\">Editar perfil</a>
