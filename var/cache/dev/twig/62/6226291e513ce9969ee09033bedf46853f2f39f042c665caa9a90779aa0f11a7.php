@@ -193,7 +193,10 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
                 </div>
 
                 <div class=\"text-center mb-3\">
-                    ¿No tienes una cuenta registrada? | <strong><a href=\"#\">Registrarse</a></strong>
+                    ¿No tienes una cuenta registrada? | <strong><a href=\"";
+        // line 69
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
+        echo "\">Registrarse</a></strong>
                 </div>
 
             </div>
@@ -223,7 +226,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
     public function getDebugInfo()
     {
-        return array (  188 => 62,  183 => 60,  179 => 59,  175 => 58,  170 => 56,  166 => 54,  160 => 51,  157 => 50,  155 => 49,  121 => 17,  112 => 16,  94 => 13,  76 => 11,  63 => 6,  59 => 5,  56 => 4,  47 => 3,  15 => 1,);
+        return array (  198 => 69,  188 => 62,  183 => 60,  179 => 59,  175 => 58,  170 => 56,  166 => 54,  160 => 51,  157 => 50,  155 => 49,  121 => 17,  112 => 16,  94 => 13,  76 => 11,  63 => 6,  59 => 5,  56 => 4,  47 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -296,7 +299,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
                 </div>
 
                 <div class=\"text-center mb-3\">
-                    ¿No tienes una cuenta registrada? | <strong><a href=\"#\">Registrarse</a></strong>
+                    ¿No tienes una cuenta registrada? | <strong><a href=\"{{ path('user_registration') }}\">Registrarse</a></strong>
                 </div>
 
             </div>
