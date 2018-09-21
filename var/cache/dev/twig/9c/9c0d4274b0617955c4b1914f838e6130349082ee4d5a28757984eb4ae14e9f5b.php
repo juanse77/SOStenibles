@@ -16,6 +16,7 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
             'title' => array($this, 'block_title'),
+            'item4' => array($this, 'block_item4'),
             'cuerpo' => array($this, 'block_cuerpo'),
             'javascripts' => array($this, 'block_javascripts'),
         );
@@ -114,6 +115,24 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
     }
 
     // line 39
+    public function block_item4($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item4"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "item4"));
+
+        echo "active";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 41
     public function block_cuerpo($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -122,7 +141,7 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "cuerpo"));
 
-        // line 40
+        // line 42
         echo "
 \t<div class=\"banner rounded text-center\">
 \t\t<h1>Logo del proyecto <small class=\"text-muted\">(Ref: 18-015)</small>:</h1>
@@ -131,7 +150,7 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
 
 \t<figure class=\"my-3 text-center\">
 \t\t<img class=\"img-fluid\" src=\"";
-        // line 47
+        // line 49
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/LogoCRref.JPG"), "html", null, true);
         echo "\" alt=\"Logo personalizado proyecto Limpieza de playas 2018\">
 \t</figure>
@@ -167,7 +186,7 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
 
     }
 
-    // line 74
+    // line 76
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -176,14 +195,14 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 75
+        // line 77
         echo "\t";
         $this->displayParentBlock("javascripts", $context, $blocks);
         echo "
 
 \t<!--Javascript personal-->
 \t<script src=\"";
-        // line 78
+        // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/js/script.js"), "html", null, true);
         echo "\"></script>
 
@@ -208,7 +227,7 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
 
     public function getDebugInfo()
     {
-        return array (  187 => 78,  180 => 75,  171 => 74,  135 => 47,  126 => 40,  117 => 39,  99 => 37,  56 => 4,  47 => 3,  15 => 1,);
+        return array (  206 => 80,  199 => 77,  190 => 76,  154 => 49,  145 => 42,  136 => 41,  118 => 39,  100 => 37,  57 => 4,  48 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -250,6 +269,8 @@ class __TwigTemplate_ac499721bdf44e28faab85f1f6b3cbd2fa4947bc0102e3a9b31c8532747
 {% endblock %}
 
 {% block title %}Logo personalizado de SOStenibles{% endblock %}
+
+{% block item4 %}active{% endblock %}
 
 {% block cuerpo %}
 

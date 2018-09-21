@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b87d250a36b235c87b1b599def3d0d8a",
+    "content-hash": "4cf060f5ae5a128b5cef76c975ce8a75",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -3673,6 +3673,7 @@
             ],
             "description": "Enforces Long Term Supported versions of Symfony components",
             "homepage": "https://symfony.com",
+            "abandoned": "symfony/flex",
             "time": "2018-04-03T05:04:16+00:00"
         },
         {
