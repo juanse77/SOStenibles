@@ -178,14 +178,15 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
         // line 59
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 59, $this->source); })()), "_password", array()), 'row');
         echo "
+                    <input type=\"checkbox\" name=\"_remember_me\" id=\"_remember_me\">&nbsp;<label for=\"_remember_me\">Recordarme</label>
                     ";
-        // line 60
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 60, $this->source); })()), "entrar", array()), 'row', array("attr" => array("value" => "Enviar", "class" => "btn boton btn-block")));
+        // line 61
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 61, $this->source); })()), "entrar", array()), 'row', array("attr" => array("value" => "Enviar", "class" => "btn boton btn-block")));
         echo "
 
                 ";
-        // line 62
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 62, $this->source); })()), 'form_end');
+        // line 63
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 63, $this->source); })()), 'form_end');
         echo "
 
                 <div class=\"centrado\">
@@ -194,7 +195,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
                 <div class=\"text-center mb-3\">
                     ¿No tienes una cuenta registrada? | <strong><a href=\"";
-        // line 69
+        // line 70
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
         echo "\">Registrarse</a></strong>
                 </div>
@@ -226,7 +227,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
     public function getDebugInfo()
     {
-        return array (  198 => 69,  188 => 62,  183 => 60,  179 => 59,  175 => 58,  170 => 56,  166 => 54,  160 => 51,  157 => 50,  155 => 49,  121 => 17,  112 => 16,  94 => 13,  76 => 11,  63 => 6,  59 => 5,  56 => 4,  47 => 3,  15 => 1,);
+        return array (  199 => 70,  189 => 63,  184 => 61,  179 => 59,  175 => 58,  170 => 56,  166 => 54,  160 => 51,  157 => 50,  155 => 49,  121 => 17,  112 => 16,  94 => 13,  76 => 11,  63 => 6,  59 => 5,  56 => 4,  47 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -290,6 +291,7 @@ class __TwigTemplate_554c6558a597c9ebc24ed977f3696b26d456fa6dea270b5fa8751ef0d42
 
                     {{ form_row(form._username) }}
                     {{ form_row(form._password) }}
+                    <input type=\"checkbox\" name=\"_remember_me\" id=\"_remember_me\">&nbsp;<label for=\"_remember_me\">Recordarme</label>
                     {{ form_row(form.entrar, {'attr' : {'value' : 'Enviar', 'class' : 'btn boton btn-block'}}) }}
 
                 {{ form_end(form) }}

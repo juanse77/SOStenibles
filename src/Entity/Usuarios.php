@@ -193,6 +193,7 @@ class Usuarios implements UserInterface, \Serializable
 
     public function getSalt()
     {
+        // No hace falta al usar bcrypt
     }
 
     public function eraseCredentials()
