@@ -27,7 +27,7 @@ class UsuariosFixture extends BaseFixture
                     $empresa->setLogo($this->faker->randomElement(self::$logos));
 
                     $empresa->setUsuario($usuario);
-                    $usuario->setRoles(['ROLE_USER, ROLE_EMPRESA']);
+                    $usuario->setRoles(['ROLE_EMPRESA']);
 
                     $manager->persist($empresa);
                     break;
@@ -44,7 +44,7 @@ class UsuariosFixture extends BaseFixture
                     $persona->setBiografia("Donec sit amet libero ut diam egestas cursus. Nullam nunc tellus, ornare in augue malesuada, pharetra maximus nulla. Curabitur non urna et erat luctus dictum vitae non mi. Nullam dui urna, dignissim quis varius eu, bibendum at justo. Suspendisse quis vestibulum metus. Aenean pellentesque non orci at pharetra. Integer ante leo, ultrices sed viverra sit amet, dignissim in augue.");
 
                     $persona->setUsuario($usuario);
-                    $usuario->setRoles(['ROLE_USER, ROLE_PERSONA']);
+                    $usuario->setRoles(['ROLE_PERSONA']);
 
                     $manager->persist($persona);
 

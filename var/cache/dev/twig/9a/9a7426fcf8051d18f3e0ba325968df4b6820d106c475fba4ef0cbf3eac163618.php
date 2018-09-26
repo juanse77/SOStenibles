@@ -34,6 +34,26 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "sostenibles/home.html.twig"));
 
+        // line 3
+        ob_start();
+        // line 4
+        echo "    ";
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 4, $this->source); })()), "persona", array()), "nombre", array())) {
+            // line 5
+            echo "        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 5, $this->source); })()), "persona", array()), "nombre", array()), "html", null, true);
+            echo "
+    ";
+        } elseif (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6
+(isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 6, $this->source); })()), "empresa", array()), "nombre", array())) {
+            // line 7
+            echo "        ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 7, $this->source); })()), "empresa", array()), "nombre", array()), "html", null, true);
+            echo "
+    ";
+        }
+        $context["nombreUsuario"] = ('' === $tmp = ob_get_clean()) ? '' : new Twig_Markup($tmp, $this->env->getCharset());
+        // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -43,7 +63,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     }
 
-    // line 3
+    // line 11
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -52,7 +72,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 4
+        // line 12
         echo "\t";
         $this->displayParentBlock("stylesheets", $context, $blocks);
         echo "
@@ -76,7 +96,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     }
 
-    // line 18
+    // line 26
     public function block_title($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -94,7 +114,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     }
 
-    // line 20
+    // line 28
     public function block_item4($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -112,7 +132,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     }
 
-    // line 22
+    // line 30
     public function block_cuerpo($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -121,58 +141,29 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "cuerpo"));
 
-        // line 23
+        // line 31
         echo "
-\t<h1 class=\"banner rounded text-center\">Home: Nombre usuario</h1>
+\t<h1 class=\"banner rounded text-center\">
+\t\tHome: ";
+        // line 33
+        echo twig_escape_filter($this->env, (isset($context["nombreUsuario"]) || array_key_exists("nombreUsuario", $context) ? $context["nombreUsuario"] : (function () { throw new Twig_Error_Runtime('Variable "nombreUsuario" does not exist.', 33, $this->source); })()), "html", null, true);
+        echo "
+\t</h1>
 
 \t<div class=\"row\">
 \t\t<div class=\"col-4 col-md-2\">
 \t\t\t<img class=\"img-fluid\" src=\"";
-        // line 28
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/user2.png"), "html", null, true);
         echo "\" alt=\"Foto usuario\">
 \t\t</div>
 \t\t<div class=\"col-8 col-md-10\">
 \t\t\t<div class=\"mb-2\">
-\t\t\t\t<strong>Usuario: </strong>
-\t\t\t\t";
-        // line 33
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 33, $this->source); })()), "roles", array()));
-        foreach ($context['_seq'] as $context["_key"] => $context["rol"]) {
-            // line 34
-            echo "\t\t\t\t\t\t";
-            echo twig_escape_filter($this->env, $context["rol"], "html", null, true);
-            echo "
-\t\t\t\t\t";
-            // line 35
-            if (($context["rol"] == "ROLE_PERSONA")) {
-                // line 36
-                echo "\t\t\t\t\t\t";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 36, $this->source); })()), "persona", array()), "nombre", array()), "html", null, true);
-                echo "
-\t\t\t\t\t";
-            }
-            // line 38
-            echo "
-\t\t\t\t\t";
-            // line 39
-            if (($context["rol"] == "ROLE_EMPRESA")) {
-                // line 40
-                echo "                        ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 40, $this->source); })()), "empresa", array()), "nombre", array()), "html", null, true);
-                echo "
-                    ";
-            }
-            // line 42
-            echo "
-\t\t\t\t";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rol'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 44
-        echo "\t\t\t</div>
+\t\t\t\t<strong>Usuario: </strong>";
+        // line 42
+        echo twig_escape_filter($this->env, (isset($context["nombreUsuario"]) || array_key_exists("nombreUsuario", $context) ? $context["nombreUsuario"] : (function () { throw new Twig_Error_Runtime('Variable "nombreUsuario" does not exist.', 42, $this->source); })()), "html", null, true);
+        echo "
+\t\t\t</div>
 \t\t\t<div>
 \t\t\t\t<a class=\"link\" href=\"#\">Editar perfil</a>
 \t\t\t</div>
@@ -222,7 +213,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 93
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -232,7 +223,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
 \t\t\t\t\t\t\t\t<a class=\"link\" href=\"";
-        // line 100
+        // line 99
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id" => 1));
         echo "\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
 \t\t\t\t\t\t\t</div>
@@ -243,7 +234,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 108
+        // line 107
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/senderimos-accesible2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -261,7 +252,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 123
+        // line 122
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -301,12 +292,20 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     public function getDebugInfo()
     {
-        return array (  265 => 123,  247 => 108,  236 => 100,  226 => 93,  175 => 44,  168 => 42,  162 => 40,  160 => 39,  157 => 38,  151 => 36,  149 => 35,  144 => 34,  140 => 33,  132 => 28,  125 => 23,  116 => 22,  98 => 20,  80 => 18,  56 => 4,  47 => 3,  15 => 1,);
+        return array (  256 => 122,  238 => 107,  227 => 99,  217 => 92,  164 => 42,  157 => 38,  149 => 33,  145 => 31,  136 => 30,  118 => 28,  100 => 26,  76 => 12,  67 => 11,  57 => 1,  50 => 7,  48 => 6,  43 => 5,  40 => 4,  38 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
+
+{% set nombreUsuario %}
+    {% if usuario.persona.nombre %}
+        {{ usuario.persona.nombre }}
+    {% elseif usuario.empresa.nombre %}
+        {{ usuario.empresa.nombre }}
+    {% endif %}
+{% endset %}
 
 {% block stylesheets %}
 \t{{ parent() }}
@@ -329,7 +328,9 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
 {% block cuerpo %}
 
-\t<h1 class=\"banner rounded text-center\">Home: Nombre usuario</h1>
+\t<h1 class=\"banner rounded text-center\">
+\t\tHome: {{ nombreUsuario }}
+\t</h1>
 
 \t<div class=\"row\">
 \t\t<div class=\"col-4 col-md-2\">
@@ -337,18 +338,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t</div>
 \t\t<div class=\"col-8 col-md-10\">
 \t\t\t<div class=\"mb-2\">
-\t\t\t\t<strong>Usuario: </strong>
-\t\t\t\t{% for rol in usuario.roles %}
-\t\t\t\t\t\t{{ rol }}
-\t\t\t\t\t{% if rol == 'ROLE_PERSONA' %}
-\t\t\t\t\t\t{{ usuario.persona.nombre }}
-\t\t\t\t\t{% endif %}
-
-\t\t\t\t\t{% if rol == 'ROLE_EMPRESA' %}
-                        {{ usuario.empresa.nombre }}
-                    {% endif %}
-
-\t\t\t\t{% endfor %}
+\t\t\t\t<strong>Usuario: </strong>{{ nombreUsuario }}
 \t\t\t</div>
 \t\t\t<div>
 \t\t\t\t<a class=\"link\" href=\"#\">Editar perfil</a>

@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% set nombreUsuario %}
+    {% if usuario.persona.nombre %}
+        {{ usuario.persona.nombre }}
+    {% elseif usuario.empresa.nombre %}
+        {{ usuario.empresa.nombre }}
+    {% endif %}
+{% endset %}
+
 {% block stylesheets %}
 	{{ parent() }}
 	
@@ -21,7 +29,9 @@
 
 {% block cuerpo %}
 
-	<h1 class="banner rounded text-center">Home: Nombre usuario</h1>
+	<h1 class="banner rounded text-center">
+		Home: {{ nombreUsuario }}
+	</h1>
 
 	<div class="row">
 		<div class="col-4 col-md-2">
@@ -29,18 +39,7 @@
 		</div>
 		<div class="col-8 col-md-10">
 			<div class="mb-2">
-				<strong>Usuario: </strong>
-				{% for rol in usuario.roles %}
-						{{ rol }}
-					{% if rol == 'ROLE_PERSONA' %}
-						{{ usuario.persona.nombre }}
-					{% endif %}
-
-					{% if rol == 'ROLE_EMPRESA' %}
-                        {{ usuario.empresa.nombre }}
-                    {% endif %}
-
-				{% endfor %}
+				<strong>Usuario: </strong>{{ nombreUsuario }}
 			</div>
 			<div>
 				<a class="link" href="#">Editar perfil</a>

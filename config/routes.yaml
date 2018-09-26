@@ -19,11 +19,11 @@ nuevo_proyecto:
     controller: App\Controller\AdminController::nuevo
 
 home:
-    path: /admin/home/{id}
+    path: /profile/home/{id}
     controller: App\Controller\AdminController::home
 
 logo:
-    path: /admin/logo/{id}
+    path: /profile/logo/{id}
     controller: App\Controller\AdminController::logo
 
 security_login:

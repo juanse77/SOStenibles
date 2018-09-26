@@ -116,10 +116,12 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             .'|(*:159)'
                         .')'
                     .')'
-                    .'|/proyecto/([^/]++)(*:187)'
-                    .'|/admin/(?'
-                        .'|home/([^/]++)(*:218)'
-                        .'|logo/([^/]++)(*:239)'
+                    .'|/pro(?'
+                        .'|yecto/([^/]++)(*:190)'
+                        .'|file/(?'
+                            .'|home/([^/]++)(*:219)'
+                            .'|logo/([^/]++)(*:240)'
+                        .')'
                     .')'
                 .')$}sD',
         );
@@ -136,9 +138,9 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             136 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
                             149 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
                             159 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
-                            187 => array(array('_route' => 'proyecto', '_controller' => 'App\\Controller\\SosteniblesController::proyecto'), array('slug'), null, null),
-                            218 => array(array('_route' => 'home', '_controller' => 'App\\Controller\\AdminController::home'), array('id'), null, null),
-                            239 => array(array('_route' => 'logo', '_controller' => 'App\\Controller\\AdminController::logo'), array('id'), null, null),
+                            190 => array(array('_route' => 'proyecto', '_controller' => 'App\\Controller\\SosteniblesController::proyecto'), array('slug'), null, null),
+                            219 => array(array('_route' => 'home', '_controller' => 'App\\Controller\\AdminController::home'), array('id'), null, null),
+                            240 => array(array('_route' => 'logo', '_controller' => 'App\\Controller\\AdminController::logo'), array('id'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -164,7 +166,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (239 === $m) {
+                if (240 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));
