@@ -21,7 +21,6 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
             'item2' => array($this, 'block_item2'),
             'item3' => array($this, 'block_item3'),
             'item4' => array($this, 'block_item4'),
-            'mi_perfil' => array($this, 'block_mi_perfil'),
             'item5' => array($this, 'block_item5'),
             'criterio' => array($this, 'block_criterio'),
             'cuerpo' => array($this, 'block_cuerpo'),
@@ -70,15 +69,15 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t";
         // line 26
         $this->displayBlock('cabecera', $context, $blocks);
-        // line 88
+        // line 86
         echo "
 \t\t</header>
 \t\t
 \t\t<section class=\"container my-3\">
 \t\t\t";
-        // line 92
+        // line 90
         $this->displayBlock('cuerpo', $context, $blocks);
-        // line 93
+        // line 91
         echo "\t\t</section>
 \t\t
 \t\t<footer class=\"d-flex justify-content-center flex-column flex-md-row\">
@@ -87,14 +86,14 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
         </footer>
 \t\t
 \t\t";
-        // line 100
+        // line 98
         $this->displayBlock('modales', $context, $blocks);
-        // line 101
+        // line 99
         echo "        
         ";
-        // line 102
+        // line 100
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 112
+        // line 110
         echo "    </body>
 </html>
 ";
@@ -225,42 +224,46 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
         // line 63
         if ((null === twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 63, $this->source); })()), "user", array()))) {
             // line 64
-            echo "\t\t\t\t\t\t\t\t\t\t";
-            $this->displayBlock('mi_perfil', $context, $blocks);
-            // line 68
-            echo "\t\t\t\t\t\t\t\t\t";
-        } else {
-            // line 69
             echo "\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home", array("id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 69, $this->source); })()), "user", array()), "id", array()))), "html", null, true);
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_login");
+            echo "\">Iniciar sesión</a>
+\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
+            // line 65
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
+            echo "\">Registrarse</a>
+\t\t\t\t\t\t\t\t\t";
+        } else {
+            // line 67
+            echo "\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home", array("id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 67, $this->source); })()), "user", array()), "id", array()))), "html", null, true);
             echo "\">Home</a>
 \t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
-            // line 70
+            // line 68
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_logout");
             echo "\">Cerrar sesión</a>
 \t\t\t\t\t\t\t\t\t";
         }
-        // line 72
+        // line 70
         echo "\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t</li>
 
 \t\t\t\t\t\t\t<li class=\"nav-item ";
-        // line 75
+        // line 73
         $this->displayBlock('item5', $context, $blocks);
         echo "\">
 \t\t\t\t\t\t\t\t<a class=\"nav-link\" href=\"";
-        // line 76
+        // line 74
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("contacto");
         echo "\">Contacto</a>
 \t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t</ul>
 
 \t\t\t\t\t\t<form class=\"form-inline ml-auto\" action=\"";
-        // line 80
+        // line 78
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("proyectos");
         echo "\">
 \t\t\t\t\t\t\t<input class=\"form-control mr-sm-2\" type=\"search\" name=\"q\" placeholder=\"Buscar proyectos\" aria-label=\"Search\" value=\"";
-        // line 81
+        // line 79
         $this->displayBlock('criterio', $context, $blocks);
         echo "\">
 \t\t\t\t\t\t\t<button class=\"btn btn-light my-2 my-sm-0\" type=\"submit\">Buscar</button>
@@ -345,33 +348,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
-    // line 64
-    public function block_mi_perfil($context, array $blocks = array())
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "mi_perfil"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "mi_perfil"));
-
-        // line 65
-        echo "\t\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("security_login");
-        echo "\">Iniciar sesión</a>
-\t\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"";
-        // line 66
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
-        echo "\">Registrarse</a>
-\t\t\t\t\t\t\t\t\t\t";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 75
+    // line 73
     public function block_item5($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -388,7 +365,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
-    // line 81
+    // line 79
     public function block_criterio($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -405,7 +382,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
-    // line 92
+    // line 90
     public function block_cuerpo($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -422,7 +399,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
-    // line 100
+    // line 98
     public function block_modales($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -439,7 +416,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     }
 
-    // line 102
+    // line 100
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -448,7 +425,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 103
+        // line 101
         echo "\t\t\t<!-- Fonnt Awesome -->
 \t\t\t<script defer src=\"https://use.fontawesome.com/releases/v5.0.13/js/all.js\" integrity=\"sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe\" crossorigin=\"anonymous\"></script>
 \t\t\t
@@ -478,7 +455,7 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 
     public function getDebugInfo()
     {
-        return array (  452 => 103,  443 => 102,  426 => 100,  409 => 92,  392 => 81,  375 => 75,  363 => 66,  358 => 65,  349 => 64,  332 => 58,  315 => 47,  298 => 43,  281 => 39,  264 => 81,  260 => 80,  253 => 76,  249 => 75,  244 => 72,  239 => 70,  234 => 69,  231 => 68,  228 => 64,  226 => 63,  218 => 58,  204 => 47,  198 => 44,  194 => 43,  187 => 39,  175 => 30,  171 => 29,  167 => 27,  158 => 26,  140 => 21,  128 => 16,  124 => 15,  119 => 12,  110 => 11,  98 => 112,  96 => 102,  93 => 101,  91 => 100,  82 => 93,  80 => 92,  74 => 88,  72 => 26,  64 => 21,  59 => 19,  56 => 18,  54 => 11,  42 => 1,);
+        return array (  429 => 101,  420 => 100,  403 => 98,  386 => 90,  369 => 79,  352 => 73,  335 => 58,  318 => 47,  301 => 43,  284 => 39,  267 => 79,  263 => 78,  256 => 74,  252 => 73,  247 => 70,  242 => 68,  237 => 67,  232 => 65,  227 => 64,  225 => 63,  217 => 58,  203 => 47,  197 => 44,  193 => 43,  186 => 39,  174 => 30,  170 => 29,  166 => 27,  157 => 26,  139 => 21,  127 => 16,  123 => 15,  118 => 12,  109 => 11,  97 => 110,  95 => 100,  92 => 99,  90 => 98,  81 => 91,  79 => 90,  73 => 86,  71 => 26,  63 => 21,  58 => 19,  55 => 18,  53 => 11,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -546,10 +523,8 @@ class __TwigTemplate_44f159c5013942321a8180d9c92415f159916f2b27db66681a9599d06e0
 \t\t\t\t\t\t\t\t</a>
 \t\t\t\t\t\t\t\t<div class=\"dropdown-menu\" aria-labelledby=\"dropDownPerfil\">
 \t\t\t\t\t\t\t\t\t{% if app.user is null %}
-\t\t\t\t\t\t\t\t\t\t{% block mi_perfil %}
-\t\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('security_login') }}\">Iniciar sesión</a>
-\t\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('user_registration') }}\">Registrarse</a>
-\t\t\t\t\t\t\t\t\t\t{% endblock %}
+\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('security_login') }}\">Iniciar sesión</a>
+\t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('user_registration') }}\">Registrarse</a>
 \t\t\t\t\t\t\t\t\t{% else %}
 \t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('home', {'id': app.user.id}) }}\">Home</a>
 \t\t\t\t\t\t\t\t\t\t<a class=\"dropdown-item link\" href=\"{{ path('security_logout') }}\">Cerrar sesión</a>

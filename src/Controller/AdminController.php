@@ -6,6 +6,7 @@ use App\Entity\Proyectos;
 use App\Entity\Usuarios;
 use App\Form\LoginForm;
 use App\Form\UsuariosType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -45,11 +46,9 @@ class AdminController extends AbstractController {
 
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        // 1) build the form
         $user = new Usuarios();
         $form = $this->createForm(UsuariosType::class, $user);
 
-        // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -75,11 +74,21 @@ class AdminController extends AbstractController {
         );
     }
 
+    /**
+     * @param Usuarios $usuario
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @IsGranted("ROLE_USER")
+     */
     public function home(Usuarios $usuario)
     {
         return $this->render('sostenibles/home.html.twig', ['usuario' => $usuario]);
     }
 
+    /**
+     * @param Proyectos $proyecto
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @IsGranted("ROLE_USER")
+     */
     public function logo(Proyectos $proyecto) {
         return $this->render('sostenibles/logo.html.twig', ['proyecto' => $proyecto]);
     }
