@@ -15,38 +15,36 @@ class UsuariosFixture extends BaseFixture
     {
         $this->createMany(Usuarios::class, 20, function(Usuarios $usuario, $count) use($manager) {
 
-            switch(rand(1,2)){
-                // Empresa
-                case 1:
-                    $empresa = new Empresas();
+            if($count < 5) {
 
-                    $empresa->setNombre("Empresa".$count);
-                    $empresa->setCif(123456789 + $count);
-                    $empresa->setDireccion("Calle Rocinante n".$count." Las Palmas de Gran Canaria");
-                    $empresa->setTelefono(rand(600000000, 999999999));
-                    $empresa->setLogo($this->faker->randomElement(self::$logos));
+                $empresa = new Empresas();
 
-                    $empresa->setUsuario($usuario);
-                    $usuario->setRoles(['ROLE_EMPRESA']);
+                $empresa->setNombre("Empresa" . $count);
+                $empresa->setCif(123456789 + $count);
+                $empresa->setDireccion("Calle Rocinante n" . $count . " Las Palmas de Gran Canaria");
+                $empresa->setTelefono(rand(600000000, 999999999));
+                $empresa->setLogo($this->faker->randomElement(self::$logos));
 
-                    $manager->persist($empresa);
-                    break;
+                $empresa->setUsuario($usuario);
+                $usuario->setRoles(['ROLE_EMPRESA']);
 
-                // Persona
-                case 2:
-                    $persona = new Personas();
+                $manager->persist($empresa);
 
-                    $persona->setNombre("Persona".$count);
-                    $persona->setTelefono(rand(600000000, 999999999));
-                    $persona->setDireccion("Calle Rocinante n".$count." Las Palmas de Gran Canaria");
-                    $persona->setApellidos("Apellidos".$count);
-                    $persona->setDni(123456789 + $count);
-                    $persona->setBiografia("Donec sit amet libero ut diam egestas cursus. Nullam nunc tellus, ornare in augue malesuada, pharetra maximus nulla. Curabitur non urna et erat luctus dictum vitae non mi. Nullam dui urna, dignissim quis varius eu, bibendum at justo. Suspendisse quis vestibulum metus. Aenean pellentesque non orci at pharetra. Integer ante leo, ultrices sed viverra sit amet, dignissim in augue.");
+            }else{
 
-                    $persona->setUsuario($usuario);
-                    $usuario->setRoles(['ROLE_PERSONA']);
+                $persona = new Personas();
 
-                    $manager->persist($persona);
+                $persona->setNombre("Persona".$count);
+                $persona->setTelefono(rand(600000000, 999999999));
+                $persona->setDireccion("Calle Rocinante n".$count." Las Palmas de Gran Canaria");
+                $persona->setApellidos("Apellidos".$count);
+                $persona->setDni(123456789 + $count);
+                $persona->setBiografia("Donec sit amet libero ut diam egestas cursus. Nullam nunc tellus, ornare in augue malesuada, pharetra maximus nulla. Curabitur non urna et erat luctus dictum vitae non mi. Nullam dui urna, dignissim quis varius eu, bibendum at justo. Suspendisse quis vestibulum metus. Aenean pellentesque non orci at pharetra. Integer ante leo, ultrices sed viverra sit amet, dignissim in augue.");
+
+                $persona->setUsuario($usuario);
+                $usuario->setRoles(['ROLE_PERSONA']);
+
+                $manager->persist($persona);
 
             }
 

@@ -8,7 +8,6 @@ use App\Entity\Necesidades;
 
 class ProyectosFixture extends BaseFixture
 {
-
     protected function loadData(ObjectManager $manager)
     {
 		$this->createMany(Proyectos::class, 20, function(Proyectos $proyecto, $count) use($manager) {

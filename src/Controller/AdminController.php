@@ -9,6 +9,7 @@ use App\Form\UsuariosType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -81,7 +82,12 @@ class AdminController extends AbstractController {
      */
     public function home(Usuarios $usuario)
     {
-        return $this->render('sostenibles/home.html.twig', ['usuario' => $usuario]);
+        if($usuario->getId() == $this->getUser()->getId()){
+            return $this->render('sostenibles/home.html.twig', ['usuario' => $usuario]);
+        }else{
+            return $this->render('security/acceso_denegado.html.twig');
+        }
+
     }
 
     /**
@@ -90,6 +96,17 @@ class AdminController extends AbstractController {
      * @IsGranted("ROLE_USER")
      */
     public function logo(Proyectos $proyecto) {
-        return $this->render('sostenibles/logo.html.twig', ['proyecto' => $proyecto]);
+        $proyecto_de_usuario = false;
+        foreach ($proyecto->getApadrinamientos() as $apadrinamiento){
+            if($apadrinamiento->getUser()->getId() == $this->getUser()->getId()){
+                $proyecto_de_usuario = true;
+            }
+        }
+
+        if($proyecto_de_usuario) {
+            return $this->render('sostenibles/logo.html.twig', ['proyecto' => $proyecto]);
+        }else{
+            return $this->render('security/acceso_denegado.html.twig');
+        }
     }
 }

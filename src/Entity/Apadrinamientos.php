@@ -43,6 +43,11 @@ class Apadrinamientos
      */
     private $personals;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $estado = 1;
+
     public function __construct()
     {
         $this->aportaciones = new ArrayCollection();
@@ -136,6 +141,18 @@ class Apadrinamientos
                 $personal->setApadrinamiento(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getEstado(): ?int
+    {
+        return $this->estado;
+    }
+
+    public function setEstado(int $estado): self
+    {
+        $this->estado = $estado;
 
         return $this;
     }
