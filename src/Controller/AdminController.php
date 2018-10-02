@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Apadrinamientos;
 use App\Entity\Proyectos;
 use App\Entity\Usuarios;
 use App\Form\LoginForm;
 use App\Form\UsuariosType;
+use App\Repository\ApadrinamientosRepository;
+use App\Repository\ProyectosRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -98,7 +101,7 @@ class AdminController extends AbstractController {
     public function logo(Proyectos $proyecto) {
         $proyecto_de_usuario = false;
         foreach ($proyecto->getApadrinamientos() as $apadrinamiento){
-            if($apadrinamiento->getUser()->getId() == $this->getUser()->getId()){
+            if($apadrinamiento->getUsuario()->getId() == $this->getUser()->getId()){
                 $proyecto_de_usuario = true;
             }
         }

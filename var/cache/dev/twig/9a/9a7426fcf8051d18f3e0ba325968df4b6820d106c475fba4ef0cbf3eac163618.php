@@ -38,14 +38,14 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
         ob_start();
         // line 4
         echo "    ";
-        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 4, $this->source); })()), "persona", array()), "nombre", array())) {
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["usuario"] ?? null), "persona", array(), "any", false, true), "nombre", array(), "any", true, true)) {
             // line 5
             echo "        ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 5, $this->source); })()), "persona", array()), "nombre", array()), "html", null, true);
             echo "
     ";
         } elseif (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source,         // line 6
-(isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 6, $this->source); })()), "empresa", array()), "nombre", array())) {
+($context["usuario"] ?? null), "empresa", array(), "any", false, true), "nombre", array(), "any", true, true)) {
             // line 7
             echo "        ";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 7, $this->source); })()), "empresa", array()), "nombre", array()), "html", null, true);
@@ -210,31 +210,104 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
 \t\t\t\t<div class=\"contenido\">
 \t\t\t\t\t<div class=\"pr-1\">
+
+\t\t\t\t\t\t";
+        // line 91
+        $context["primero"] = true;
+        // line 92
+        echo "\t\t\t\t\t\t";
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["usuario"]) || array_key_exists("usuario", $context) ? $context["usuario"] : (function () { throw new Twig_Error_Runtime('Variable "usuario" does not exist.', 92, $this->source); })()), "apadrinamientos", array()));
+        foreach ($context['_seq'] as $context["_key"] => $context["apadrinamiento"]) {
+            // line 93
+            echo "
+\t\t\t\t\t\t\t";
+            // line 94
+            if ((isset($context["primero"]) || array_key_exists("primero", $context) ? $context["primero"] : (function () { throw new Twig_Error_Runtime('Variable "primero" does not exist.', 94, $this->source); })())) {
+                // line 95
+                echo "\t\t\t\t\t\t\t\t";
+                $context["primero"] = false;
+                // line 96
+                echo "\t\t\t\t\t\t\t";
+            } else {
+                // line 97
+                echo "\t\t\t\t\t\t<hr>
+\t\t\t\t\t\t\t";
+            }
+            // line 99
+            echo "
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 92
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
-        echo "\" alt=\"\">
+            // line 102
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("build/img/" . twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["apadrinamiento"], "proyecto", array()), "foto", array()))), "html", null, true);
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["apadrinamiento"], "proyecto", array()), "nombre", array()), "html", null, true);
+            echo "\">
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-8 col-sm-4 col-md-7\">
-\t\t\t\t\t\t\t\t<strong>Limpieza de playas</strong><br>
-\t\t\t\t\t\t\t\tEn curso
+\t\t\t\t\t\t\t\t<strong>";
+            // line 105
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["apadrinamiento"], "proyecto", array()), "nombre", array()), "html", null, true);
+            echo "</strong><br>
+
+\t\t\t\t\t\t\t";
+            // line 107
+            if ((twig_get_attribute($this->env, $this->source, $context["apadrinamiento"], "estado", array()) == 0)) {
+                // line 108
+                echo "\t\t\t\t\t\t\tSolicitud pendiente
+
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
+\t\t\t\t\t\t\t\t<i class=\"fas fa-question\"></i>
+\t\t\t\t\t\t\t</div>
+
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 115
+$context["apadrinamiento"], "estado", array()) == 1)) {
+                // line 116
+                echo "\t\t\t\t\t\t\tEn curso
+
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
 \t\t\t\t\t\t\t\t<a class=\"link\" href=\"";
-        // line 99
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id" => 1));
-        echo "\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
+                // line 120
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logo", array("id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["apadrinamiento"], "proyecto", array()), "id", array()))), "html", null, true);
+                echo "\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
 \t\t\t\t\t\t\t</div>
+
+\t\t\t\t\t\t\t";
+            } elseif ((twig_get_attribute($this->env, $this->source,             // line 123
+$context["apadrinamiento"], "estado", array()) == 2)) {
+                // line 124
+                echo "\t\t\t\t\t\t\tFinalizado el 6/10/2017
+
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
+\t\t\t\t\t\t\t\t<i class=\"far fa-calendar-times\"></i>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t";
+            }
+            // line 131
+            echo "
 \t\t\t\t\t\t</div>
-
-\t\t\t\t\t\t<hr>
-
+\t\t\t\t
+\t\t\t\t\t\t";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['apadrinamiento'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 135
+        echo "\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</fieldset>
+\t\t</div>
+\t</div>
+\t\t\t\t\t\t<!--
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 107
+        // line 143
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/senderimos-accesible2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -252,7 +325,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"";
-        // line 122
+        // line 158
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("build/img/playa_sucia2.jpg"), "html", null, true);
         echo "\" alt=\"\">
 \t\t\t\t\t\t\t</div>
@@ -264,12 +337,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t\t<i class=\"far fa-calendar-times\"></i>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
-
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</fieldset>
-\t\t</div>
-\t</div>
+\t\t\t\t\t\t-->
 
 ";
         
@@ -292,7 +360,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
     public function getDebugInfo()
     {
-        return array (  256 => 122,  238 => 107,  227 => 99,  217 => 92,  164 => 42,  157 => 38,  149 => 33,  145 => 31,  136 => 30,  118 => 28,  100 => 26,  76 => 12,  67 => 11,  57 => 1,  50 => 7,  48 => 6,  43 => 5,  40 => 4,  38 => 3,  15 => 1,);
+        return array (  329 => 158,  311 => 143,  301 => 135,  292 => 131,  283 => 124,  281 => 123,  275 => 120,  269 => 116,  267 => 115,  258 => 108,  256 => 107,  251 => 105,  243 => 102,  238 => 99,  234 => 97,  231 => 96,  228 => 95,  226 => 94,  223 => 93,  218 => 92,  216 => 91,  164 => 42,  157 => 38,  149 => 33,  145 => 31,  136 => 30,  118 => 28,  100 => 26,  76 => 12,  67 => 11,  57 => 1,  50 => 7,  48 => 6,  43 => 5,  40 => 4,  38 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -300,9 +368,9 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
         return new Twig_Source("{% extends 'base.html.twig' %}
 
 {% set nombreUsuario %}
-    {% if usuario.persona.nombre %}
+    {% if usuario.persona.nombre is defined %}
         {{ usuario.persona.nombre }}
-    {% elseif usuario.empresa.nombre %}
+    {% elseif usuario.empresa.nombre is defined %}
         {{ usuario.empresa.nombre }}
     {% endif %}
 {% endset %}
@@ -386,21 +454,57 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 
 \t\t\t\t<div class=\"contenido\">
 \t\t\t\t\t<div class=\"pr-1\">
+
+\t\t\t\t\t\t{% set primero = true %}
+\t\t\t\t\t\t{% for apadrinamiento in usuario.apadrinamientos %}
+
+\t\t\t\t\t\t\t{% if primero %}
+\t\t\t\t\t\t\t\t{% set primero = false %}
+\t\t\t\t\t\t\t{% else %}
+\t\t\t\t\t\t<hr>
+\t\t\t\t\t\t\t{% endif %}
+
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
-\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"{{ asset('build/img/playa_sucia2.jpg') }}\" alt=\"\">
+\t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"{{ asset('build/img/' ~ apadrinamiento.proyecto.foto) }}\" alt=\"{{ apadrinamiento.proyecto.nombre }}\">
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-8 col-sm-4 col-md-7\">
-\t\t\t\t\t\t\t\t<strong>Limpieza de playas</strong><br>
-\t\t\t\t\t\t\t\tEn curso
+\t\t\t\t\t\t\t\t<strong>{{ apadrinamiento.proyecto.nombre }}</strong><br>
+
+\t\t\t\t\t\t\t{% if apadrinamiento.estado == 0 %}
+\t\t\t\t\t\t\tSolicitud pendiente
+
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
-\t\t\t\t\t\t\t\t<a class=\"link\" href=\"{{ path('logo', {'id': 1}) }}\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
+\t\t\t\t\t\t\t\t<i class=\"fas fa-question\"></i>
 \t\t\t\t\t\t\t</div>
+
+\t\t\t\t\t\t\t{% elseif apadrinamiento.estado == 1 %}
+\t\t\t\t\t\t\tEn curso
+
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
+\t\t\t\t\t\t\t\t<a class=\"link\" href=\"{{ path('logo', {'id': apadrinamiento.proyecto.id}) }}\" data-toggle=\"tooltip\" title=\"Acceso a su logo\"><i class=\"far fa-calendar-check\"></i></a>
+\t\t\t\t\t\t\t</div>
+
+\t\t\t\t\t\t\t{% elseif apadrinamiento.estado == 2 %}
+\t\t\t\t\t\t\tFinalizado el 6/10/2017
+
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<div class=\"col-4 col-md-2 icono h1 text-center\">
+\t\t\t\t\t\t\t\t<i class=\"far fa-calendar-times\"></i>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t{% endif %}
+
 \t\t\t\t\t\t</div>
-
-\t\t\t\t\t\t<hr>
-
+\t\t\t\t
+\t\t\t\t\t\t{% endfor %}
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</fieldset>
+\t\t</div>
+\t</div>
+\t\t\t\t\t\t<!--
 \t\t\t\t\t\t<div class=\"row\">
 \t\t\t\t\t\t\t<div class=\"col-sm-4 col-md-3\">
 \t\t\t\t\t\t\t\t<img class=\"img-fluid\" src=\"{{ asset('build/img/senderimos-accesible2.jpg') }}\" alt=\"\">
@@ -428,12 +532,7 @@ class __TwigTemplate_4dab37d45369fe800c02fe7de4f765e3e1f4eba55a3f803ec20aebc40aa
 \t\t\t\t\t\t\t\t<i class=\"far fa-calendar-times\"></i>
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t</div>
-
-\t\t\t\t\t</div>
-\t\t\t\t</div>
-\t\t\t</fieldset>
-\t\t</div>
-\t</div>
+\t\t\t\t\t\t-->
 
 {% endblock %}
 ", "sostenibles/home.html.twig", "C:\\MiXampp\\htdocs\\mis_sites\\SOStenibles\\templates\\sostenibles\\home.html.twig");

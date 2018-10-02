@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% set nombreUsuario %}
-    {% if usuario.persona.nombre %}
+    {% if usuario.persona.nombre is defined %}
         {{ usuario.persona.nombre }}
-    {% elseif usuario.empresa.nombre %}
+    {% elseif usuario.empresa.nombre is defined %}
         {{ usuario.empresa.nombre }}
     {% endif %}
 {% endset %}
@@ -87,21 +87,57 @@
 
 				<div class="contenido">
 					<div class="pr-1">
+
+						{% set primero = true %}
+						{% for apadrinamiento in usuario.apadrinamientos %}
+
+							{% if primero %}
+								{% set primero = false %}
+							{% else %}
+						<hr>
+							{% endif %}
+
 						<div class="row">
 							<div class="col-sm-4 col-md-3">
-								<img class="img-fluid" src="{{ asset('build/img/playa_sucia2.jpg') }}" alt="">
+								<img class="img-fluid" src="{{ asset('build/img/' ~ apadrinamiento.proyecto.foto) }}" alt="{{ apadrinamiento.proyecto.nombre }}">
 							</div>
 							<div class="col-8 col-sm-4 col-md-7">
-								<strong>Limpieza de playas</strong><br>
-								En curso
+								<strong>{{ apadrinamiento.proyecto.nombre }}</strong><br>
+
+							{% if apadrinamiento.estado == 0 %}
+							Solicitud pendiente
+
 							</div>
 							<div class="col-4 col-md-2 icono h1 text-center">
-								<a class="link" href="{{ path('logo', {'id': 1}) }}" data-toggle="tooltip" title="Acceso a su logo"><i class="far fa-calendar-check"></i></a>
+								<i class="fas fa-question"></i>
 							</div>
+
+							{% elseif apadrinamiento.estado == 1 %}
+							En curso
+
+							</div>
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<a class="link" href="{{ path('logo', {'id': apadrinamiento.proyecto.id}) }}" data-toggle="tooltip" title="Acceso a su logo"><i class="far fa-calendar-check"></i></a>
+							</div>
+
+							{% elseif apadrinamiento.estado == 2 %}
+							Finalizado el 6/10/2017
+
+							</div>
+							<div class="col-4 col-md-2 icono h1 text-center">
+								<i class="far fa-calendar-times"></i>
+							</div>
+							{% endif %}
+
 						</div>
 
-						<hr>
-
+						{% endfor %}
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+						<!--
 						<div class="row">
 							<div class="col-sm-4 col-md-3">
 								<img class="img-fluid" src="{{ asset('build/img/senderimos-accesible2.jpg') }}" alt="">
@@ -129,11 +165,6 @@
 								<i class="far fa-calendar-times"></i>
 							</div>
 						</div>
-
-					</div>
-				</div>
-			</fieldset>
-		</div>
-	</div>
+						-->
 
 {% endblock %}

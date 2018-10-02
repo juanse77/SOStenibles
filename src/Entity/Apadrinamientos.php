@@ -46,7 +46,7 @@ class Apadrinamientos
     /**
      * @ORM\Column(type="smallint")
      */
-    private $estado = 1;
+    private $estado = 0;
 
     public function __construct()
     {
